@@ -1,5 +1,5 @@
 package com.spring.project.group6.model;
-
+// this is a comment
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
