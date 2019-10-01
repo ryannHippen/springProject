@@ -1,7 +1,7 @@
 package com.spring.project.group6.model;
 
 import org.hibernate.type.BlobType;
-
+//test
 public class File {
 
 	private int fileId;
