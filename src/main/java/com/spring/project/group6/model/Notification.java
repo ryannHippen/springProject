@@ -1,7 +1,10 @@
 package com.spring.project.group6.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Notification {
-	//test
+	
 	private String messageBody;
 	private String messageHeader;
 	public Notification(String messageBody, String messageHeader) {
