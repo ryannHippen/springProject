@@ -23,6 +23,9 @@ public class Profile {
 	private String lastName;
 	private String email;
 	private String about;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "File_Id")
 	private Long fileId;
 	
 	public Profile() {

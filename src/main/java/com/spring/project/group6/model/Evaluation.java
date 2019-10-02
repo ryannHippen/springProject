@@ -14,11 +14,6 @@ public class Evaluation {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long evaluationId;
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Profile_Id")
-	private Long profileId;
-	
 	private String reviewer;
 	private String customerFeedback;
 	private int rating;
@@ -29,7 +24,6 @@ public class Evaluation {
 			String technologyMap, String interviewDate) {
 		super();
 		this.evaluationId = evaluationId;
-		this.profileId = profileId;
 		this.reviewer = reviewer;
 		this.customerFeedback = customerFeedback;
 		this.rating = rating;
@@ -43,14 +37,6 @@ public class Evaluation {
 
 	public void setEvaluationId(Long evaluationId) {
 		this.evaluationId = evaluationId;
-	}
-
-	public Long getProfileId() {
-		return profileId;
-	}
-
-	public void setProfileId(Long profileId) {
-		this.profileId = profileId;
 	}
 
 	public String getReviewer() {
@@ -95,7 +81,7 @@ public class Evaluation {
 
 	@Override
 	public String toString() {
-		return "Evaluation [evaluationId=" + evaluationId + ", profileId=" + profileId + ", reviewer=" + reviewer
+		return "Evaluation [evaluationId=" + evaluationId + ", profileId=" + ", reviewer=" + reviewer
 				+ ", customerFeedback=" + customerFeedback + ", rating=" + rating + ", technologyMap=" + technologyMap
 				+ ", interviewDate=" + interviewDate + "]";
 	}
@@ -107,7 +93,6 @@ public class Evaluation {
 		result = prime * result + ((customerFeedback == null) ? 0 : customerFeedback.hashCode());
 		result = prime * result + ((evaluationId == null) ? 0 : evaluationId.hashCode());
 		result = prime * result + ((interviewDate == null) ? 0 : interviewDate.hashCode());
-		result = prime * result + ((profileId == null) ? 0 : profileId.hashCode());
 		result = prime * result + rating;
 		result = prime * result + ((reviewer == null) ? 0 : reviewer.hashCode());
 		result = prime * result + ((technologyMap == null) ? 0 : technologyMap.hashCode());
@@ -137,11 +122,6 @@ public class Evaluation {
 			if (other.interviewDate != null)
 				return false;
 		} else if (!interviewDate.equals(other.interviewDate))
-			return false;
-		if (profileId == null) {
-			if (other.profileId != null)
-				return false;
-		} else if (!profileId.equals(other.profileId))
 			return false;
 		if (rating != other.rating)
 			return false;
