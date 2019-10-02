@@ -46,7 +46,7 @@ public class FileController {
     }
     
     @RequestMapping("/edit/{id}")
-    public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
+    public ModelAndView showEditFilePage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_file");
         File file = service.get(id);
         mav.addObject("file", file);
