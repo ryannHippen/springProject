@@ -16,7 +16,7 @@ import com.spring.project.group6.model.Profile;
 import com.spring.project.group6.service.ProfileService;
 
 @Controller
-public class ProfileController {
+public class CandProfileController {
  
     @Autowired
     private ProfileService service;
@@ -49,7 +49,7 @@ public class ProfileController {
     public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_profile");
         Profile profile = service.get(id);
-        mav.addObject("pofile", profile);
+        mav.addObject("profile", profile);
          
         return mav;
     }
@@ -57,6 +57,7 @@ public class ProfileController {
     @RequestMapping("/delete/{id}")
     public String deleteProfile(@PathVariable(name = "id") int id) {
         service.delete(id);
+        
         return "redirect:/";       
     }
     

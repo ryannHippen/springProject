@@ -11,6 +11,7 @@ public class Group6ApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }
