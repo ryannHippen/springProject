@@ -15,17 +15,13 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long profileId;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Evaluation_Id")
-	private Long evaluationId;
-	
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String about;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "File_Id")
+	@JoinColumn(name = "fileId")
 	private Long fileId;
 	
 	public Profile() {
@@ -41,14 +37,7 @@ public class Profile {
 		this.about = about;
 		this.fileId = fileId;
 	}
-	
-	public Long getEvaluationId() {
-		return evaluationId;
-	}
 
-	public void setEvaluationId(Long evaluationId) {
-		this.evaluationId = evaluationId;
-	}
 		
 	public Long getProfileId() {
 		return profileId;
