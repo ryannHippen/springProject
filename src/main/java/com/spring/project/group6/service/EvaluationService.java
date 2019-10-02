@@ -24,12 +24,12 @@ public class EvaluationService {
 		repo.save(eval);
 	}
 	
-	public Evaluation get(Long id) {
-		return repo.getOne(id);
+	public Evaluation get(long id) {
+		return repo.findById(id).get();
 	}
 	
-	public void delete(Evaluation eval) {
-		repo.delete(eval);
+	public void delete(long id) {
+		repo.deleteById(id);
 	}
 	
 }
