@@ -22,8 +22,8 @@ public class FileService {
         return repo.findAll();
     }
      
-    public void save(File user) {
-        repo.save(user);
+    public void save(File resume) {
+        repo.save(resume);
     }
      
     public File get(long id) {

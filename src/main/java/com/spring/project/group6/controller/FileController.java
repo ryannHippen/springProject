@@ -35,7 +35,7 @@ public class FileController {
         File file = new File();
         model.addAttribute("file", file);
          
-        return "new_profile";
+        return "new_file";
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -47,7 +47,7 @@ public class FileController {
     
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_profile");
+        ModelAndView mav = new ModelAndView("edit_file");
         File file = service.get(id);
         mav.addObject("file", file);
          
