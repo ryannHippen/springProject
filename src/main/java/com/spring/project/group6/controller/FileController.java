@@ -22,7 +22,7 @@ public class FileController {
     private FileService service;
      
     
-    @RequestMapping("/")
+    @RequestMapping("/files")
     public String viewHomePage(Model model) {
         List<File> listFiles = service.listAll();
         model.addAttribute("listFiles", listFiles);
@@ -30,7 +30,7 @@ public class FileController {
         return "index";
     }
     
-    @RequestMapping("/new")
+    @RequestMapping("/newFile")
     public String showNewFilePage(Model model) {
         File file = new File();
         model.addAttribute("file", file);
@@ -38,14 +38,14 @@ public class FileController {
         return "new_file";
     }
     
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("product") File file) {
+    @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+    public String saveFile(@ModelAttribute("file") File file) {
         service.save(file);
          
         return "redirect:/";
     }
     
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/editFile/{id}")
     public ModelAndView showEditFilePage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_file");
         File file = service.get(id);
@@ -54,7 +54,7 @@ public class FileController {
         return mav;
     }
     
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/deleteFile/{id}")
     public String deleteFile(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/";       
