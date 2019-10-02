@@ -16,7 +16,7 @@ public class Evaluation {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "profileId")
-	private Long profileId;
+	private Profile profile;
 
 	private String reviewer;
 	private String customerFeedback;
@@ -28,11 +28,11 @@ public class Evaluation {
 		super();
 	}
 	
-	public Evaluation(Long evaluationId, Long profileId, String reviewer, String customerFeedback, int rating,
+	public Evaluation(Long evaluationId, Profile profile, String reviewer, String customerFeedback, int rating,
 			String technologyMap, String interviewDate) {
 		super();
 		this.evaluationId = evaluationId;
-		this.profileId = profileId;
+		this.profile = profile;
 		this.reviewer = reviewer;
 		this.customerFeedback = customerFeedback;
 		this.rating = rating;
@@ -48,12 +48,12 @@ public class Evaluation {
 		this.evaluationId = evaluationId;
 	}
 
-	public Long getProfileId() {
-		return profileId;
+	public Profile getProfile() {
+		return profile;
 	}
 
-	public void setProfileId(Long profileId) {
-		this.profileId = profileId;
+	public void setProfile(Profile profile) {
+		this.profile = profile;
 	}
 
 	public String getReviewer() {
@@ -98,7 +98,7 @@ public class Evaluation {
 
 	@Override
 	public String toString() {
-		return "Evaluation [evaluationId=" + evaluationId + ", profileId=" + profileId + ", reviewer=" + reviewer
+		return "Evaluation [evaluationId=" + evaluationId + ", profile=" + profile + ", reviewer=" + reviewer
 				+ ", customerFeedback=" + customerFeedback + ", rating=" + rating + ", technologyMap=" + technologyMap
 				+ ", interviewDate=" + interviewDate + "]";
 	}
@@ -110,7 +110,7 @@ public class Evaluation {
 		result = prime * result + ((customerFeedback == null) ? 0 : customerFeedback.hashCode());
 		result = prime * result + ((evaluationId == null) ? 0 : evaluationId.hashCode());
 		result = prime * result + ((interviewDate == null) ? 0 : interviewDate.hashCode());
-		result = prime * result + ((profileId == null) ? 0 : profileId.hashCode());
+		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
 		result = prime * result + rating;
 		result = prime * result + ((reviewer == null) ? 0 : reviewer.hashCode());
 		result = prime * result + ((technologyMap == null) ? 0 : technologyMap.hashCode());
@@ -141,10 +141,10 @@ public class Evaluation {
 				return false;
 		} else if (!interviewDate.equals(other.interviewDate))
 			return false;
-		if (profileId == null) {
-			if (other.profileId != null)
+		if (profile == null) {
+			if (other.profile != null)
 				return false;
-		} else if (!profileId.equals(other.profileId))
+		} else if (!profile.equals(other.profile))
 			return false;
 		if (rating != other.rating)
 			return false;
