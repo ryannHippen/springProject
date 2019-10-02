@@ -4,6 +4,9 @@ public class Notification {
 	//test
 	private String messageBody;
 	private String messageHeader;
+	public Notification() {
+		super();
+	}
 	public Notification(String messageBody, String messageHeader) {
 		super();
 		this.messageBody = messageBody;
@@ -56,6 +59,12 @@ public class Notification {
 		return true;
 	}
 	
+	public void sendEmail(String interviewDate,String recipient) {
+		setMessageBody("Interview at "+interviewDate);
+		setMessageHeader("Interview Notification");
+		//TODO:
+		//Call some email api that sends a message to recipient using message fields
+	}
 	
 	
 
