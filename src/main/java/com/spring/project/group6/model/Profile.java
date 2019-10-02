@@ -1,5 +1,5 @@
 package com.spring.project.group6.model;
-// this is a comment by Todd
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;

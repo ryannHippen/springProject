@@ -22,7 +22,7 @@ public class CandProfileController {
     private ProfileService service;
      
     
-    @RequestMapping("/")
+    @RequestMapping("/profiles")
     public String viewHomePage(Model model) {
         List<Profile> listProfiles = service.listAll();
         model.addAttribute("listProfiles", listProfiles);
@@ -30,7 +30,7 @@ public class CandProfileController {
         return "index";
     }
     
-    @RequestMapping("/new")
+    @RequestMapping("/newProfile")
     public String showNewProfilePage(Model model) {
         Profile profile = new Profile();
         model.addAttribute("profile", profile);
@@ -38,14 +38,14 @@ public class CandProfileController {
         return "new_profile";
     }
     
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
     public String saveProfile(@ModelAttribute("profile") Profile profile) {
         service.save(profile);
          
         return "redirect:/";
     }
     
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/editProfile/{id}")
     public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_profile");
         Profile profile = service.get(id);
@@ -54,7 +54,7 @@ public class CandProfileController {
         return mav;
     }
     
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/deleteProfile/{id}")
     public String deleteProfile(@PathVariable(name = "id") int id) {
         service.delete(id);
         
