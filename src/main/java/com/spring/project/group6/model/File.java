@@ -7,6 +7,10 @@ public class File {
 	private int fileId;
 	private BlobType file;
 	
+	public File() {
+		super();
+	}
+	
 	
 	public File(int fileId, BlobType file) {
 		super();
