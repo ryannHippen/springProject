@@ -1,9 +1,12 @@
 package com.spring.project.group6.model;
 // this is a comment by Todd
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Profile {
@@ -11,6 +14,10 @@ public class Profile {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long profileId;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Evaluation_Id")
+	private Long evaluationId;
 	
 	private String firstName;
 	private String lastName;
@@ -32,6 +39,14 @@ public class Profile {
 		this.fileId = fileId;
 	}
 	
+	public Long getEvaluationId() {
+		return evaluationId;
+	}
+
+	public void setEvaluationId(Long evaluationId) {
+		this.evaluationId = evaluationId;
+	}
+		
 	public Long getProfileId() {
 		return profileId;
 	}

@@ -1,9 +1,17 @@
 package com.spring.project.group6.model;
 
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 public class Evaluation {
 	
 	private Long evaluationId;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Profile_Id")
 	private Long profileId;
+	
 	private String reviewer;
 	private String customerFeedback;
 	private int rating;
