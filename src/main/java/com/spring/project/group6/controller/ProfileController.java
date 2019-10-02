@@ -16,7 +16,7 @@ import com.spring.project.group6.model.Profile;
 import com.spring.project.group6.service.ProfileService;
 
 @Controller
-public class AppController {
+public class ProfileController {
  
     @Autowired
     private ProfileService service;
@@ -60,5 +60,4 @@ public class AppController {
         return "redirect:/";       
     }
     
-    // handler methods...
 }
