@@ -2,13 +2,18 @@ package com.spring.project.group6.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Evaluation {
-	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long evaluationId;	
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "profileId")
 	private Long profileId;
