@@ -1,15 +1,11 @@
 package com.spring.project.group6.model;
 
 import org.hibernate.type.BlobType;
-
+//test
 public class File {
 
 	private int fileId;
 	private BlobType file;
-	
-	public File() {
-		super();
-	}
 	
 	
 	public File(int fileId, BlobType file) {

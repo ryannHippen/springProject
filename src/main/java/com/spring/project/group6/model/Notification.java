@@ -1,7 +1,7 @@
 package com.spring.project.group6.model;
 
 public class Notification {
-	
+	//test
 	private String messageBody;
 	private String messageHeader;
 	public Notification(String messageBody, String messageHeader) {
