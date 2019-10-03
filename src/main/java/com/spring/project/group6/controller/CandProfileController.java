@@ -26,7 +26,7 @@ public class CandProfileController {
     public String viewHomePage(Model model) {
         List<Profile> listProfiles = service.listAll();
         model.addAttribute("listProfiles", listProfiles);
-         
+
         return "profiles";
     }
     
@@ -41,7 +41,7 @@ public class CandProfileController {
     @RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
     public String saveProfile(@ModelAttribute("profile") Profile profile) {
     	service.save(profile);
-        System.out.println("Saved:" + profile.toString());
+  
         return "redirect:/profiles";
     }
     

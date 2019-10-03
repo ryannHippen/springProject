@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,17 +28,17 @@
         <tbody>
         	<c:forEach items="${listProfiles}" var="profile">
 	            <tr> 
-	                <td${profile.profileId}></td>
-	                <td${profile.firstName}></td>
-	                <td${profile.lastName}></td>
-	                <td${profile.email}></td>
-	                <td${profile.about}></td>
-	                <td>File></td>
+	                <td>${profile.profileId}</td>
+	                <td>${profile.firstName}</td>
+	                <td>${profile.lastName}</td>
+	                <td>${profile.email}</td>
+	                <td>${profile.about}</td>
+	                <td>File</td>
 	
 	                <td>
-	                    <a th:href="/@{'/edit/' + ${profile.profileId}}">Edit</a>
+	                    <a href="/@{'/edit/' + ${profile.profileId}}">Edit</a>
 	                    &nbsp;&nbsp;&nbsp;
-	                    <a th:href="/@{'/delete/' + ${profile.profileId}}">Delete</a>
+	                    <a href="/@{'/delete/' + ${profile.profileId}}">Delete</a>
 	                </td>
 	                
 	            </tr>
