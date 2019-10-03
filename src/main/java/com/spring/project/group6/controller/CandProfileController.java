@@ -27,7 +27,7 @@ public class CandProfileController {
         List<Profile> listProfiles = service.listAll();
         model.addAttribute("listProfiles", listProfiles);
          
-        return "index";
+        return "profiles";
     }
     
     @RequestMapping("/newProfile")
@@ -35,14 +35,14 @@ public class CandProfileController {
         Profile profile = new Profile();
         model.addAttribute("profile", profile);
          
-        return "new_profile";
+        return "newProfile";
     }
     
     @RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
     public String saveProfile(@ModelAttribute("profile") Profile profile) {
-        service.save(profile);
-         
-        return "redirect:/";
+    	service.save(profile);
+        System.out.println("Saved:" + profile.toString());
+        return "redirect:/profiles";
     }
     
     @RequestMapping("/editProfile/{id}")
