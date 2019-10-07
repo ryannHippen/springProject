@@ -1,0 +1,17 @@
+<h2>Profiles</h2>
+
+<!-- editable name from example was here-->
+
+<ul class="profiles">
+    <li *ngFor="let profile of profiles">
+        <a routerLink="/detail/{{profile.profileId}}">
+            <span class="badge">{{profile.profileId}}</span> 
+            {{profile.firstName}}
+            {{profile.lastName}}
+        </a>
+
+        <button class="delete" title="delete profile"
+            (click)="delete(profile)">x</button>
+    </li>
+</ul>
+
