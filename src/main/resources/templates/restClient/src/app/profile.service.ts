@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Profile } from './profile';
+import { Profile } from './models/profile';
 
 
 const httpOptions = {
@@ -25,15 +25,24 @@ export class ProfileService {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   // };
 
-  /** GET profiles from the server */
-  // getProfiles (): Observable<Profile[]> {
-  //   return this.http.get<Profile[]>(this.baseUrl+'\profiles')
-  //     .pipe(
-  //       catchError(this.handleError<Profile[]>('getProfiles', []))
-  //     );
-  // }
   public getProfiles() {
     return this.http.get<Profile[]>(this.baseUrl+'/profiles');
+  }
+
+  public getProfile(id: number): Observable<Profile> {
+    return this.http.get<Profile>(this.baseUrl+'/profile/'+id);
+  }
+
+  updateProfile (profile) {
+    return this.http.put(this.baseUrl+'/profiles', profile);
+  }
+
+  public deleteUser(profile) {
+    return this.http.delete(this.baseUrl + "/"+ profile.profileId);
+  }
+
+  public addUser(profile) {
+    return this.http.post<Profile>(this.baseUrl, profile);
   }
 
   /**
