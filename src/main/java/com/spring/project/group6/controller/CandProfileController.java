@@ -55,14 +55,19 @@ public class CandProfileController {
         return "redirect:/profiles";
     }
     
-    @RequestMapping("/editProfile/{id}")
-    public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_profile");
-        Profile profile = service.get(id);
-        mav.addObject("profile", profile);
-         
-        return mav;
-    }
+//    @RequestMapping("/editProfile/{id}")
+//    public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
+//        ModelAndView mav = new ModelAndView("edit_profile");
+//        Profile profile = service.get(id);
+//        mav.addObject("profile", profile);
+//         
+//        return mav;
+//    }
+    
+    @RequestMapping("/profile/{id}")
+	  public Profile getProfile(int id) {
+	      return service.get(id);
+	  }
     
     @RequestMapping("/deleteProfile/{id}")
     public String deleteProfile(@PathVariable(name = "id") int id) {
