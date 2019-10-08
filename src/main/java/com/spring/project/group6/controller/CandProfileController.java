@@ -65,9 +65,9 @@ public class CandProfileController {
 //    }
     
     @RequestMapping("/profile/{id}")
-	  public Profile getProfile(int id) {
-	      return service.get(id);
-	  }
+    public Profile getProfile(@PathVariable(name = "id") int id) {
+		return service.get(id);
+    }
     
     @RequestMapping("/deleteProfile/{id}")
     public String deleteProfile(@PathVariable(name = "id") int id) {
