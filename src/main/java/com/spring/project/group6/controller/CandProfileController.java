@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -69,11 +70,16 @@ public class CandProfileController {
 		return service.get(id);
     }
     
-    @RequestMapping("/deleteProfile/{id}")
-    public String deleteProfile(@PathVariable(name = "id") int id) {
-        service.delete(id);
-        
-        return "redirect:/";       
+//    @RequestMapping("/deleteProfile/{id}")
+//    public String deleteProfile(@PathVariable(name = "id") int id) {
+//        service.delete(id);
+//        
+//        return "redirect:/";       
+//    }
+    
+    @DeleteMapping("/profile/{id}")
+    public void deleteProfile(@PathVariable("id") int id) {
+        service.delete(id);      
     }
     
 }

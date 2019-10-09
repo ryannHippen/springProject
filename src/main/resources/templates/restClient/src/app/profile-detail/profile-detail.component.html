@@ -1,6 +1,6 @@
 <div *ngIf="profile">
     <h2>{{profile.firstName | uppercase}} Details</h2>
-    <div><span>id: </span>{{profile.profileId}}</div>
+    <div *ngIf="profile.profileId"><span>id: </span>{{profile.profileId}}</div>
     <div>
         <label>Details:
         <input [(ngModel)]="profile.firstName" placeholder="First Name"/>

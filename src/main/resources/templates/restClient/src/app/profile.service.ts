@@ -21,9 +21,9 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  // httpOptions = {
-  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  // };
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   public getProfiles() {
     return this.http.get<Profile[]>(this.baseUrl+'/profiles');
@@ -37,12 +37,12 @@ export class ProfileService {
     return this.http.put(this.baseUrl+'/profiles', profile);
   }
 
-  public deleteUser(profile) {
-    return this.http.delete(this.baseUrl + "/"+ profile.profileId);
+  public deleteProfile(profile) {
+    return this.http.delete(this.baseUrl+'/profile/'+ profile.profileId);
   }
 
-  public addUser(profile) {
-    return this.http.post<Profile>(this.baseUrl, profile);
+  public addProfile(profile) {
+    return this.http.post<Profile>(this.baseUrl, profile, this.httpOptions);
   }
 
   /**

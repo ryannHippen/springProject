@@ -21,4 +21,9 @@ export class ProfilesComponent implements OnInit {
     .subscribe(heroes => this.profiles = heroes);
   }
 
+  delete(profile: Profile): void {
+    this.profiles = this.profiles.filter(p => p !== profile);
+    this.profileService.deleteProfile(profile).subscribe();
+  }
+
 }
