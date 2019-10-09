@@ -1,1 +1,14 @@
-<p>add-profile works!</p>
+<div>
+    <h2>New Profile</h2>
+    <div>
+        <label>Details:
+        <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
+        <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
+        <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
+        <input [(ngModel)]="profile.about" placeholder="about"/>
+        </label>
+    </div>
+</div>
+
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>

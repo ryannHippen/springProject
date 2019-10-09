@@ -20,23 +20,10 @@ export class ProfileDetailComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
-    this.getHero();
-  }
-
-  getHero(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.profileService.getProfile(id)
-      .subscribe(profile => this.profile = profile);
-  }
+  ngOnInit(): void { }
 
   goBack(): void {
     this.location.back();
-  }
-
-  save(): void {
-    this.profileService.updateProfile(this.profile)
-      .subscribe(() => this.goBack());
   }
 
 }
