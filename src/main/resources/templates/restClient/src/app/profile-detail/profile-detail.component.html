@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="profile">
     <h2>{{profile.firstName | uppercase}} Details</h2>
     <div><span>id: </span>{{profile.profileId}}</div>
     <div>
@@ -11,5 +11,5 @@
     </div>
 </div>
 
-<button (click)="goBack()">go back</button>
-<button (click)="save()">save</button>
+<button (click)="goBack()">Go Back</button>
+<button (click)="save()">Save</button>

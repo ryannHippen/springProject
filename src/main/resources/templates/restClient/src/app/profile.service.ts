@@ -15,8 +15,6 @@ const httpOptions = {
 })
 export class ProfileService {
 
-
-  //private baseUrl:string='http://localhost:8080/api';
   private baseUrl = '/api';
 
   constructor(private http: HttpClient) { }
@@ -33,8 +31,8 @@ export class ProfileService {
     return this.http.get<Profile>(this.baseUrl+'/profile/'+id);
   }
 
-  updateProfile (profile) {
-    return this.http.put(this.baseUrl+'/profiles', profile);
+  public updateProfile (profile) {
+    return this.http.put(this.baseUrl, profile, this.httpOptions);
   }
 
   public deleteProfile(profile) {
