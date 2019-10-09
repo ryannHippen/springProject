@@ -31,8 +31,8 @@ export class ProfileService {
     return this.http.get<Profile>(this.baseUrl+'/profile/'+id);
   }
 
-  updateProfile (profile) {
-    return this.http.put(this.baseUrl+'/profiles', profile);
+  public updateProfile (profile) {
+    return this.http.put(this.baseUrl, profile, this.httpOptions);
   }
 
   public deleteProfile(profile) {
