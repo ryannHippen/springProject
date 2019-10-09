@@ -26,8 +26,8 @@ public class ProfileService {
         return repo.findAll();
     }
      
-    public void save(Profile profile) {
-        repo.save(profile);
+    public Profile save(Profile profile) {
+        return repo.save(profile);
     }
      
     public Profile get(long id) {

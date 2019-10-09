@@ -36,7 +36,7 @@ public class CandProfileController {
     
     @PostMapping
     public Profile create(@RequestBody Profile profile){
-        return service.add(profile);
+        return service.save(profile);
     }
     
     @RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
