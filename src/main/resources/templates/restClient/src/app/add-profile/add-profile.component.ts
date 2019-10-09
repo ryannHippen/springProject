@@ -12,7 +12,7 @@ import { Profile } from '../models/profile';
 })
 export class AddProfileComponent implements OnInit {
 
-  @Input() profile: Profile;
+  @Input() profile: Profile = new Profile();
   
   constructor(
     private route: ActivatedRoute,
@@ -20,23 +20,17 @@ export class AddProfileComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
-    this.getHero();
-  }
-
-  getHero(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.profileService.getProfile(id)
-      .subscribe(profile => this.profile = profile);
-  }
+  ngOnInit(): void { }
 
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
-    this.profileService.updateProfile(this.profile)
-      .subscribe(() => this.goBack());
+  addProfile(): void {
+    this.profileService.addProfile(this.profile)
+        .subscribe( data => {
+          alert("User created successfully.");
+        });
   }
 
 }

@@ -15,8 +15,6 @@ const httpOptions = {
 })
 export class ProfileService {
 
-
-  //private baseUrl:string='http://localhost:8080/api';
   private baseUrl = '/api';
 
   constructor(private http: HttpClient) { }

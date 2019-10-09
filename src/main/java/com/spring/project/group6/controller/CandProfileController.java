@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,27 +28,15 @@ public class CandProfileController {
  
     @Autowired
     private ProfileService service;
-     
-    
-//    @RequestMapping("/profiles")
-//    public String viewHomePage(Model model) {
-//        List<Profile> listProfiles = service.listAll();
-//        model.addAttribute("listProfiles", listProfiles);
-//
-//        return "profiles";
-//    }
     
     @GetMapping(path = {"/profiles"})
     public List findAll(){
         return service.listAll();
     }
     
-    @RequestMapping("/newProfile")
-    public String showNewProfilePage(Model model) {
-        Profile profile = new Profile();
-        model.addAttribute("profile", profile);
-         
-        return "newProfile";
+    @PostMapping
+    public Profile create(@RequestBody Profile profile){
+        return service.add(profile);
     }
     
     @RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
@@ -69,13 +59,6 @@ public class CandProfileController {
     public Profile getProfile(@PathVariable(name = "id") int id) {
 		return service.get(id);
     }
-    
-//    @RequestMapping("/deleteProfile/{id}")
-//    public String deleteProfile(@PathVariable(name = "id") int id) {
-//        service.delete(id);
-//        
-//        return "redirect:/";       
-//    }
     
     @DeleteMapping("/profile/{id}")
     public void deleteProfile(@PathVariable("id") int id) {
