@@ -1,0 +1,17 @@
+<h2>Evaluation</h2>
+
+<!-- editable name from example was here-->
+<a routerLink="/evaluation/new">Add New</a>
+
+<ul class="evaluations">
+    <li *ngFor="let evaluations of evaluation">
+        <a routerLink="/evaluation/{{evaluations.evaluationId}}">
+            <span class="badge Evaluation">{{evaluations.evaluationId}}</span>
+            {{evaluations.reviewer}}
+            {{evaluations.customerFeedback}}
+        </a>
+
+        <button class="delete" title="delete evaluation"
+            (click)="delete(evaluation)">x</button>
+    </li>
+</ul>

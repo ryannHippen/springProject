@@ -10,18 +10,20 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Evaluation {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long evaluationId;	
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "profileId")
-	private Profile profile;
-
+	/*
+	 * @OneToOne(fetch = FetchType.LAZY)
+	 * 
+	 * @JoinColumn(name = "profileId") private Profile profile;
+	 */
 	private String reviewer;
 	private String customerFeedback;
 	private int rating;
-	private String technologyMap;
+	private String technologies;
 	private String interviewDate;
 	
 	public Evaluation() {
@@ -32,11 +34,11 @@ public class Evaluation {
 			String technologyMap, String interviewDate) {
 		super();
 		this.evaluationId = evaluationId;
-		this.profile = profile;
+		//this.profile = profile;
 		this.reviewer = reviewer;
 		this.customerFeedback = customerFeedback;
 		this.rating = rating;
-		this.technologyMap = technologyMap;
+		this.technologies = technologyMap;
 		this.interviewDate = interviewDate;
 	}
 
@@ -48,14 +50,11 @@ public class Evaluation {
 		this.evaluationId = evaluationId;
 	}
 
-	public Profile getProfile() {
-		return profile;
-	}
-
-	public void setProfile(Profile profile) {
-		this.profile = profile;
-	}
-
+	/*
+	 * public Profile getProfile() { return profile; }
+	 * 
+	 * public void setProfile(Profile profile) { this.profile = profile; }
+	 */
 	public String getReviewer() {
 		return reviewer;
 	}
@@ -81,11 +80,11 @@ public class Evaluation {
 	}
 
 	public String getTechnologyMap() {
-		return technologyMap;
+		return technologies;
 	}
 
 	public void setTechnologyMap(String technologyMap) {
-		this.technologyMap = technologyMap;
+		this.technologies = technologyMap;
 	}
 
 	public String getInterviewDate() {
@@ -98,8 +97,8 @@ public class Evaluation {
 
 	@Override
 	public String toString() {
-		return "Evaluation [evaluationId=" + evaluationId + ", profile=" + profile + ", reviewer=" + reviewer
-				+ ", customerFeedback=" + customerFeedback + ", rating=" + rating + ", technologyMap=" + technologyMap
+		return "Evaluation [evaluationId=" + evaluationId + ", reviewer=" + reviewer
+				+ ", customerFeedback=" + customerFeedback + ", rating=" + rating + ", technologies=" + technologies
 				+ ", interviewDate=" + interviewDate + "]";
 	}
 
@@ -110,10 +109,10 @@ public class Evaluation {
 		result = prime * result + ((customerFeedback == null) ? 0 : customerFeedback.hashCode());
 		result = prime * result + ((evaluationId == null) ? 0 : evaluationId.hashCode());
 		result = prime * result + ((interviewDate == null) ? 0 : interviewDate.hashCode());
-		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
+		//result = prime * result + ((profile == null) ? 0 : profile.hashCode());
 		result = prime * result + rating;
 		result = prime * result + ((reviewer == null) ? 0 : reviewer.hashCode());
-		result = prime * result + ((technologyMap == null) ? 0 : technologyMap.hashCode());
+		result = prime * result + ((technologies == null) ? 0 : technologies.hashCode());
 		return result;
 	}
 
@@ -141,11 +140,10 @@ public class Evaluation {
 				return false;
 		} else if (!interviewDate.equals(other.interviewDate))
 			return false;
-		if (profile == null) {
-			if (other.profile != null)
-				return false;
-		} else if (!profile.equals(other.profile))
-			return false;
+		/*
+		 * if (profile == null) { if (other.profile != null) return false; } else if
+		 * (!profile.equals(other.profile)) return false;
+		 */
 		if (rating != other.rating)
 			return false;
 		if (reviewer == null) {
@@ -153,10 +151,10 @@ public class Evaluation {
 				return false;
 		} else if (!reviewer.equals(other.reviewer))
 			return false;
-		if (technologyMap == null) {
-			if (other.technologyMap != null)
+		if (technologies == null) {
+			if (other.technologies != null)
 				return false;
-		} else if (!technologyMap.equals(other.technologyMap))
+		} else if (!technologies.equals(other.technologies))
 			return false;
 		return true;
 	}

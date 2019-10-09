@@ -9,13 +9,15 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
+import { EvaluationComponent } from './evaluation/evaluation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfilesComponent,
     ProfileDetailComponent,
-    AddProfileComponent
+    AddProfileComponent,
+    EvaluationComponent
   ],
   imports: [
     BrowserModule,

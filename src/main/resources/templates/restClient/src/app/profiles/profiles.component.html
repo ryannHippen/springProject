@@ -6,7 +6,7 @@
 <ul class="profiles">
     <li *ngFor="let profile of profiles">
         <a routerLink="/profile/{{profile.profileId}}">
-            <span class="badge">{{profile.profileId}}</span> 
+            <span class="badge Profiles">{{profile.profileId}}</span>
             {{profile.firstName}}
             {{profile.lastName}}
         </a>
