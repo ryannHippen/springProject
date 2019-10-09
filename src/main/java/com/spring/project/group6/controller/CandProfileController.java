@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,21 +40,10 @@ public class CandProfileController {
         return service.save(profile);
     }
     
-    @RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
-    public String saveProfile(@ModelAttribute("profile") Profile profile) {
-    	service.save(profile);
-  
-        return "redirect:/profiles";
+    @PutMapping
+    public Profile update(@RequestBody Profile profile){
+        return service.save(profile);
     }
-    
-//    @RequestMapping("/editProfile/{id}")
-//    public ModelAndView showEditProfilePage(@PathVariable(name = "id") int id) {
-//        ModelAndView mav = new ModelAndView("edit_profile");
-//        Profile profile = service.get(id);
-//        mav.addObject("profile", profile);
-//         
-//        return mav;
-//    }
     
     @RequestMapping("/profile/{id}")
     public Profile getProfile(@PathVariable(name = "id") int id) {
