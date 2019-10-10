@@ -1,14 +1,27 @@
 <div>
-    <h2>New Profile</h2>
-    <div>
-        <label>Details:
-        <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
-        <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
-        <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
-        <input [(ngModel)]="profile.about" placeholder="about"/>
-        </label>
+        <h2>New Profile</h2>
+        <div>
+            <div class="formItem">
+                <label>First Name:</label><br>   
+                <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
+            </div>
+    
+            <div class="formItem">
+                <label>Last Name:</label><br> 
+                <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
+            </div>
+            
+            <div class="formItem">
+                <label>Email:</label><br> 
+                <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
+            </div>
+            
+            <div class="formItem">
+                <label>About:</label><br> 
+                <input [(ngModel)]="profile.about" placeholder="about"/>
+            </div>
+        </div>
     </div>
-</div>
-
-<button (click)="goBack()">Go Back</button>
-<button (click)="addProfile()">Save</button>
+    
+    <button (click)="goBack()">Go Back</button>
+    <button (click)="addProfile()">Save</button>
