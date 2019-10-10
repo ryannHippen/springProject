@@ -1,7 +1,7 @@
 <h2>Profiles</h2>
-
+<hr>
 <!-- editable name from example was here-->
-<a routerLink="/profile/new">Add New</a>
+<button class="link" routerLink="/profile/new">+ Add New</button>
 
 <table class="profiles">
     <tr>
@@ -11,10 +11,10 @@
         <th>Delete</th>
     </tr>
     <tr *ngFor="let profile of profiles" routerLink="/profile/{{profile.profileId}}">
-        <td>{{profile.profileId}}</td>
+        <td class="id">{{profile.profileId}}</td>
         <td>{{profile.firstName}}</td>
         <td>{{profile.lastName}}</td>
-        <td>
+        <td style="width:1em">
             <button class="delete" title="delete profile"
                 (click)="delete(profile)">x</button>
         </td>

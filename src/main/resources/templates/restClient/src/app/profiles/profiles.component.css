@@ -24,15 +24,20 @@
     border: 1px solid #ddd;
     padding: 8px;
   }
+
+  .profiles td.id {
+    width: 2em;
+    text-align: center;
+  }
   
-  .profiles a {
+  a {
     color: #333;
     text-decoration: none;
     position: relative;
     display: block;
   }
   
-  .profiles a:hover {
+  a:hover {
     color:#607D8B;
   }
   
@@ -51,20 +56,32 @@
   }
   
   button {
-    background-color: #eee;
+    background-color: #405061;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    cursor: hand;
     font-family: Arial;
   }
   
   button:hover {
     background-color: #cfd8dc;
   }
+
+  button.link {
+    margin: 1em;
+    padding: .5em;
+    font-size: 16px;
+  }
   
   button.delete {
     position: relative;
-    background-color: gray !important;
+    background-color: #40506198;
     color: white;
+    border: none;
+    padding: .3em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
   }
