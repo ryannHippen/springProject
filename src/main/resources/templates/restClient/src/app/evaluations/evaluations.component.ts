@@ -3,27 +3,27 @@ import { Evaluation } from '../models/evaluation';
 import { EvaluationService } from '../evaluation.service';
 
 @Component({
-  selector: 'app-evaluation',
-  templateUrl: './evaluation.component.html',
-  styleUrls: ['./evaluation.component.css']
+  selector: 'app-evaluations',
+  templateUrl: './evaluations.component.html',
+  styleUrls: ['./evaluations.component.css']
 })
-export class EvaluationComponent implements OnInit {
+export class EvaluationsComponent implements OnInit {
 
-  evaluation: Evaluation[];
+  evaluations: Evaluation[];
 
   constructor(private evaluationService: EvaluationService) { }
 
   ngOnInit() {
-    this.getEvaluation();
+    this.getEvaluations();
   }
 
-  getEvaluation(): void {
+  getEvaluations(): void {
     this.evaluationService.getEvaluations()
-    .subscribe(heroes => this.evaluation = heroes);
+    .subscribe(heroes => this.evaluations = heroes);
   }
 
   delete(evaluation: Evaluation): void {
-    this.evaluation = this.evaluation.filter(p => p !== evaluation);
+    this.evaluations = this.evaluations.filter(p => p !== evaluation);
     this.evaluationService.deleteEvaluation(evaluation).subscribe();
   }
 }

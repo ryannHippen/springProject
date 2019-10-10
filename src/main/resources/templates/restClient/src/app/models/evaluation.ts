@@ -1,6 +1,6 @@
 export class Evaluation {
-  id: number;
-  profileId; number;
+  evaluationId: number;
+  //profileId; number;
   reviewer: string;
   customerFeedback: string;
   rating: number;

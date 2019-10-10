@@ -5,14 +5,16 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
 
-import { EvaluationComponent } from './evaluation/evaluation.component';
+import { EvaluationsComponent } from './evaluations/evaluations.component';
+
 
 
 const routes: Routes = [
   { path: 'profiles', component: ProfilesComponent },
   { path: 'profile/new', component: AddProfileComponent },
   { path: 'profile/:id', component: ProfileDetailComponent },
-  { path: 'evaluation', component: EvaluationComponent }
+  { path: 'evaluations', component: EvaluationsComponent }
+
 
 
 ];
