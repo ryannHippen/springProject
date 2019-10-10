@@ -1,13 +1,25 @@
 <div *ngIf="profile">
-    <h2>{{profile.firstName | uppercase}} Details</h2>
-    <div><span>id: </span>{{profile.profileId}}</div>
+    <h2>Profile ID #{{profile.profileId}} Details</h2>
     <div>
-        <label>Details:
-        <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
-        <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
-        <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
-        <input [(ngModel)]="profile.about" placeholder="about"/>
-        </label>
+        <div class="formItem">
+            <label>First Name:</label><br>   
+            <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
+        </div>
+
+        <div class="formItem">
+            <label>Last Name:</label><br> 
+            <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
+        </div>
+        
+        <div class="formItem">
+            <label>Email:</label><br> 
+            <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
+        </div>
+        
+        <div class="formItem">
+            <label>About:</label><br> 
+            <input [(ngModel)]="profile.about" placeholder="about"/>
+        </div>
     </div>
 </div>
 

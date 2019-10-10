@@ -21,10 +21,10 @@ export class ProfileDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getHero();
+    this.getProfile();
   }
 
-  getHero(): void {
+  getProfile(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.profileService.getProfile(id)
       .subscribe(profile => this.profile = profile);
