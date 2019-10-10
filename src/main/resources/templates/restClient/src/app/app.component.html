@@ -1,6 +1,6 @@
 <nav>
   <p class="logo">{{title}}</p>
-  <a routerLink="/profiles">Profiles</a>
-  <a routerLink="/evaluations">Evaluations</a>
+  <a [ngClass]="getClass('/profiles')" routerLink="/profiles">Profiles</a>
+  <a [ngClass]="getClass('/evaluations')" routerLink="/evaluations">Evaluations</a>
 </nav>
 <router-outlet></router-outlet>
