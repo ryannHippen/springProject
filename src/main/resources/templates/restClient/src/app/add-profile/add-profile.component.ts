@@ -30,6 +30,7 @@ export class AddProfileComponent implements OnInit {
     this.profileService.addProfile(this.profile)
         .subscribe( data => {
           alert("User created successfully.");
+          this.goBack();
         });
   }
 
