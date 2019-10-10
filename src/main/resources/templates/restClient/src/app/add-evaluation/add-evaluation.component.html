@@ -1,0 +1,17 @@
+<div>
+  <h2>New Evaluation</h2>
+  <div>
+      <label>Details:
+      <input [(ngModel)]="evaluation.reviewer" placeholder="Reviewer"/>
+      <input [(ngModel)]="evaluation.technologies" placeholder="Technologies"/>
+      <input [(ngModel)]="evaluation.interviewDate" placeholder="Interview Date"/>
+      <input [(ngModel)]="evaluation.rating" placeholder="Rating out of 5"/>
+      <input [(ngModel)]="evaluation.customerFeedback" placeholder="Feedback"/>
+
+      </label>
+  </div>
+</div>
+
+<button (click)="goBack()">Go Back</button>
+<button (click)="addEvaluation()">Save</button>
+

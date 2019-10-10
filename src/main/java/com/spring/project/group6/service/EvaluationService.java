@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.spring.project.group6.repository.EvaluationRepository;
 import com.spring.project.group6.model.Evaluation;
 
+
 @Service
 @Transactional
 public class EvaluationService {
@@ -20,9 +21,9 @@ public class EvaluationService {
 		return repo.findAll();
 	}
 	
-	public void save(Evaluation eval) {
-		repo.save(eval);
-	}
+    public Evaluation save(Evaluation evaluation) {
+        return repo.save(evaluation);
+    }
 	
 	public Evaluation get(long id) {
 		return repo.findById(id).get();

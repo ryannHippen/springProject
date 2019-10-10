@@ -19,7 +19,7 @@ export class EvaluationsComponent implements OnInit {
 
   getEvaluations(): void {
     this.evaluationService.getEvaluations()
-    .subscribe(heroes => this.evaluations = heroes);
+    .subscribe(evaluation => this.evaluations = evaluation);
   }
 
   delete(evaluation: Evaluation): void {

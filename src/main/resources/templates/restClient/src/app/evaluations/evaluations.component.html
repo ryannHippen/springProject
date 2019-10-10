@@ -5,8 +5,9 @@
 
 <ul class="evaluations">
     <li *ngFor="let evaluation of evaluations">
-        <a routerLink="/evaluation/{{evaluation.evaluationId}">
-            <span class="badge evaluation">{{evaluation.evaluationId}}</span>
+        <a routerLink="/evaluation/{{evaluation.evaluationId}}">
+            <span class="badge Evaluations">{{evaluation.evaluationId}}</span>
+
             {{evaluation.reviewer}}
             {{evaluation.customerFeedback}}
         </a>

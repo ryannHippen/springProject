@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class ProfileService {
 
-  private baseUrl = '/api';
+  private baseUrl = '/api/pro';
 
   constructor(private http: HttpClient) { }
 

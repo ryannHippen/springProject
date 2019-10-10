@@ -11,6 +11,8 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
 import { AddProfileComponent } from './add-profile/add-profile.component';
 // import { EvaluationComponent } from './evaluation/evaluation.component';
 import { EvaluationsComponent } from './evaluations/evaluations.component';
+import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
+import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EvaluationsComponent } from './evaluations/evaluations.component';
     ProfilesComponent,
     ProfileDetailComponent,
     AddProfileComponent,
-    EvaluationsComponent
+    EvaluationsComponent,
+    AddEvaluationComponent,
+    EvaluationDetailComponent
   ],
   imports: [
     BrowserModule,

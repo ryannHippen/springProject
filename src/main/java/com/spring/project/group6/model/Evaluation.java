@@ -15,11 +15,7 @@ public class Evaluation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long evaluationId;	
 	
-	/*
-	 * @OneToOne(fetch = FetchType.LAZY)
-	 * 
-	 * @JoinColumn(name = "profileId") private Profile profile;
-	 */
+
 	private String reviewer;
 	private String customerFeedback;
 	private int rating;
@@ -30,15 +26,15 @@ public class Evaluation {
 		super();
 	}
 	
-	public Evaluation(Long evaluationId, Profile profile, String reviewer, String customerFeedback, int rating,
-			String technologyMap, String interviewDate) {
+	public Evaluation(Long evaluationId, String reviewer, String customerFeedback, int rating,
+			String technologies, String interviewDate) {
 		super();
 		this.evaluationId = evaluationId;
 		//this.profile = profile;
 		this.reviewer = reviewer;
 		this.customerFeedback = customerFeedback;
 		this.rating = rating;
-		this.technologies = technologyMap;
+		this.technologies = technologies;
 		this.interviewDate = interviewDate;
 	}
 
@@ -79,12 +75,12 @@ public class Evaluation {
 		this.rating = rating;
 	}
 
-	public String getTechnologyMap() {
+	public String getTechnologies() {
 		return technologies;
 	}
 
-	public void setTechnologyMap(String technologyMap) {
-		this.technologies = technologyMap;
+	public void setTechnologies(String technologies) {
+		this.technologies = technologies;
 	}
 
 	public String getInterviewDate() {

@@ -24,7 +24,7 @@ import com.spring.project.group6.service.ProfileService;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping({"/api"})
+@RequestMapping({"/api/pro"})
 public class CandProfileController {
  
     @Autowired

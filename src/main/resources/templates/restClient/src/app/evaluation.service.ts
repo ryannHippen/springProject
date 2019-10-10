@@ -14,7 +14,7 @@ const httpOption = {
 export class EvaluationService {
 
     //private baseUrl:string='http://localhost:8080/api';
-    private baseUrl = '/api';
+    private baseUrl = '/api/eval';
 
   constructor(private http: HttpClient) { }
 
@@ -26,12 +26,12 @@ export class EvaluationService {
     return this.http.get<Evaluation[]>(this.baseUrl+'/evaluations');
   }
 
-  public getEvaluation(id: number): Observable<Evaluation>{
+  public getEvaluation(id: number): Observable<Evaluation> {
     return this.http.get<Evaluation>(this.baseUrl+'/evaluation/'+id);
   }
 
-  updateEvaluation (evaluation) {
-    return this.http.put(this.baseUrl+'/evaluation', evaluation);
+  public updateEvaluation (evaluation) {
+    return this.http.put(this.baseUrl, evaluation, this.httpOptions);
   }
 
   public deleteEvaluation(evaluation) {

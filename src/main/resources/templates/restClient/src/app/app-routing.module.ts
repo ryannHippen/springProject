@@ -6,6 +6,8 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
 import { AddProfileComponent } from './add-profile/add-profile.component';
 
 import { EvaluationsComponent } from './evaluations/evaluations.component';
+import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
+import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
 
 
 
@@ -13,7 +15,11 @@ const routes: Routes = [
   { path: 'profiles', component: ProfilesComponent },
   { path: 'profile/new', component: AddProfileComponent },
   { path: 'profile/:id', component: ProfileDetailComponent },
-  { path: 'evaluations', component: EvaluationsComponent }
+  { path: 'evaluations', component: EvaluationsComponent },
+  { path: 'evaluation/new', component: AddEvaluationComponent },
+  { path: 'evaluation/:id', component: EvaluationDetailComponent }
+
+
 
 
 
