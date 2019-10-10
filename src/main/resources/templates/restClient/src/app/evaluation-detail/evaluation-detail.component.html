@@ -1,17 +1,28 @@
 <div *ngIf="evaluation">
-  <h2>{{evaluation.reviewer | uppercase}} Details</h2>
-  <div><span>id: </span>{{evaluation.evaluationId}}</div>
+  <h2>Evaluation ID #{{evaluation.evaluationId}}</h2>
+  <hr>
   <div>
-      <label>Details:
+      <div class="formItem">
+        <label>Reviewer:</label><br> 
         <input [(ngModel)]="evaluation.reviewer" placeholder="Reviewer"/>
-        <input [(ngModel)]="evaluation.customerFeedback" placeholder="Feedback"/>
-        <input [(ngModel)]="evaluation.rating" placeholder="Rating out of 5"/>
+      </div>
+      <div class="formItem">
+        <label>Technologies:</label><br> 
         <input [(ngModel)]="evaluation.technologies" placeholder="Technologies"/>
+      </div>
+      <div class="formItem">
+        <label>Interview Date:</label><br> 
         <input [(ngModel)]="evaluation.interviewDate" placeholder="Interview Date"/>
-
-
-      </label>
-  </div>
+      </div>
+      <div class="formItem">
+        <label>Rating out of 5:</label><br> 
+        <input [(ngModel)]="evaluation.rating" placeholder="Rating out of 5"/>
+      </div>
+      <div class="formItem">
+        <label>Feedback:</label><br> 
+        <input [(ngModel)]="evaluation.customerFeedback" placeholder="Feedback"/>
+      </div>
+    </div>
 </div>
 
 <button (click)="goBack()">Go Back</button>
