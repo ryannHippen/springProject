@@ -1,24 +1,28 @@
 /* ProfileComponent's private CSS styles */
-.profiles {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
-  }
-  .profiles li {
-    position: relative;
-    cursor: pointer;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
+  .profiles {
+    border-collapse: collapse;
+    width: 100%;
   }
   
-  .profiles li:hover {
-    color: #607D8B;
-    background-color: #DDD;
-    left: .1em;
+  .profiles tr:nth-child(even){background-color: #f2f2f2;}
+
+  .profiles tr:hover {background-color: #ddd;}
+
+  .profiles tr {
+    cursor: pointer;
+  }
+
+  .profiles th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #334953cb;
+    color: white;
+  }
+
+  .profiles td, .profiles th {
+    border: 1px solid #ddd;
+    padding: 8px;
   }
   
   .profiles a {
@@ -26,7 +30,6 @@
     text-decoration: none;
     position: relative;
     display: block;
-    width: 250px;
   }
   
   .profiles a:hover {
@@ -37,23 +40,19 @@
     display: inline-block;
     font-size: small;
     color: white;
-    padding: 0.8em 0.7em 0 0.7em;
     background-color:#405061;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: -4px;
-    height: 1.8em;
     min-width: 16px;
     text-align: right;
-    margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
   
   button {
     background-color: #eee;
     border: none;
-    padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
@@ -66,8 +65,6 @@
   
   button.delete {
     position: relative;
-    left: 194px;
-    top: -32px;
     background-color: gray !important;
     color: white;
   }
