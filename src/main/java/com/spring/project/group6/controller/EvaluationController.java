@@ -24,20 +24,13 @@ public class EvaluationController {
     @Autowired
     private EvaluationService service;
      
-    @GetMapping(path = {"/evaluation"})
+    @GetMapping(path = {"/evaluations"})
     public List findAll(){
         return service.listAll();
     }
     
     
-	/*
-	 * @RequestMapping("/evaluations") public String viewHomePage(Model model) {
-	 * List<Evaluation> listEvaluation = service.listAll();
-	 * model.addAttribute("listEvaluation", listEvaluation);
-	 * 
-	 * return "index"; }
-	 */
-    
+
     @RequestMapping("/newEvaluation")
     public String showNewProfilePage(Model model) {
     	Evaluation evaluation = new Evaluation();
@@ -52,28 +45,15 @@ public class EvaluationController {
         return "redirect:/";
     }
     
-	/*
-	 * @RequestMapping("/editEvaluation/{id}") public ModelAndView
-	 * showEditProfilePage(@PathVariable(name = "id") int id) { ModelAndView mav =
-	 * new ModelAndView("edit_evaluation"); Evaluation evaluation = service.get(id);
-	 * mav.addObject("evaluation", evaluation);
-	 * 
-	 * return mav; }
-	 */
+
     
-    @RequestMapping("/evaluation/{id}")
+    @RequestMapping("/evaluations/{id}")
     public Evaluation getEvaluation(@PathVariable(name = "id") int id) {
 		return service.get(id);
     }
     
     
     
-	/*
-	 * @RequestMapping("/deleteEvaluation/{id}") public String
-	 * deleteEvaluation(@PathVariable(name = "id") int id) { service.delete(id);
-	 * 
-	 * return "redirect:/"; }
-	 */
     
     @DeleteMapping("/evaluation/{id}")
     public void deleteEvaluation(@PathVariable("id") int id) {

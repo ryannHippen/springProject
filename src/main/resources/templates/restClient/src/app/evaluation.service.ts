@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
 import { Evaluation } from './models/evaluation';
 
 const httpOption = {
@@ -24,7 +23,7 @@ export class EvaluationService {
   };
 
   public getEvaluations(){
-    return this.http.get<Evaluation[]>(this.baseUrl+'/evaluation');
+    return this.http.get<Evaluation[]>(this.baseUrl+'/evaluations');
   }
 
   public getEvaluation(id: number): Observable<Evaluation>{
@@ -32,11 +31,11 @@ export class EvaluationService {
   }
 
   updateEvaluation (evaluation) {
-    return this.http.put(this.baseUrl+'/profiles', evaluation);
+    return this.http.put(this.baseUrl+'/evaluation', evaluation);
   }
 
   public deleteEvaluation(evaluation) {
-    return this.http.delete(this.baseUrl+'/profile/'+ evaluation.evaluationId);
+    return this.http.delete(this.baseUrl+'/evaluation/'+ evaluation.evaluationId);
   }
 
   public addEvaluation(evaluation) {
