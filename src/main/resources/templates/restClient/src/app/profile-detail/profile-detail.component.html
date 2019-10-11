@@ -21,6 +21,8 @@
             <label>About:</label><br> 
             <input [(ngModel)]="profile.about" placeholder="about"/>
         </div>
+
+        <p *ngIf="profile.evaluation">EVAL</p>
     </div>
 </div>
 
