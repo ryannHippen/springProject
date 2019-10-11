@@ -22,6 +22,9 @@ public class Evaluation {
 	private String technologies;
 	private String interviewDate;
 	
+	@OneToOne
+	private Profile profile;
+	
 	public Evaluation() {
 		super();
 	}

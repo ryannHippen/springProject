@@ -25,14 +25,11 @@ public class Profile {
 	@JoinColumn(name = "fileId")
 	private File file;
 	
-	@OneToOne
-	private Evaluation evaluation;
-	
 	public Profile() {
 		super();
 	}
 	
-	public Profile(Long profileId, String firstName, String lastName, String email, String about, File file, Evaluation evaluation) {
+	public Profile(Long profileId, String firstName, String lastName, String email, String about, File file) {
 		super();
 		this.profileId = profileId;
 		this.firstName = firstName;
@@ -40,7 +37,6 @@ public class Profile {
 		this.email = email;
 		this.about = about;
 		this.file = file;
-		this.evaluation = evaluation;
 	}
 
 		
@@ -79,12 +75,6 @@ public class Profile {
 	}
 	public void setFile(File file) {
 		this.file = file;
-	}
-	public Evaluation getEval() {
-		return evaluation;
-	}
-	public void setEval(Evaluation eval) {
-		this.evaluation = eval;
 	}
 	@Override
 	public String toString() {
