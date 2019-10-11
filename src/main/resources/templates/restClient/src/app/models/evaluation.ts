@@ -5,4 +5,5 @@ export class Evaluation {
   rating: number;
   technologies: string;
   interviewDate: string;
+  profileId: number;
 }

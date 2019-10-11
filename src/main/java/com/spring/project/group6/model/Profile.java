@@ -21,22 +21,23 @@ public class Profile {
 	private String email;
 	private String about;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fileId")
-	private File file;
-	
+	/*
+	 * @OneToOne(fetch = FetchType.LAZY)
+	 * 
+	 * @JoinColumn(name = "fileId") private File file;
+	 */
 	public Profile() {
 		super();
 	}
 	
-	public Profile(Long profileId, String firstName, String lastName, String email, String about, File file) {
+	public Profile(Long profileId, String firstName, String lastName, String email, String about/* , File file */) {
 		super();
 		this.profileId = profileId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.about = about;
-		this.file = file;
+		/* this.file = file; */
 	}
 
 		
@@ -70,16 +71,15 @@ public class Profile {
 	public void setAbout(String about) {
 		this.about = about;
 	}
-	public File getFile() {
-		return file;
-	}
-	public void setFile(File file) {
-		this.file = file;
-	}
+
+	/*
+	 * public File getFile() { return file; } public void setFile(File file) {
+	 * this.file = file; }
+	 */
 	@Override
 	public String toString() {
 		return "Profiles [profileId=" + profileId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", about=" + about + ", file=" + file + "]";
+				+ email + ", about=" + about + "]";
 	}
 	
 	
@@ -89,7 +89,7 @@ public class Profile {
 		int result = 1;
 		result = prime * result + ((about == null) ? 0 : about.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((file == null) ? 0 : file.hashCode());
+		//result = prime * result + ((file == null) ? 0 : file.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((profileId == null) ? 0 : profileId.hashCode());
@@ -114,11 +114,10 @@ public class Profile {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (file == null) {
-			if (other.file != null)
-				return false;
-		} else if (!file.equals(other.file))
-			return false;
+		/*
+		 * if (file == null) { if (other.file != null) return false; } else if
+		 * (!file.equals(other.file)) return false;
+		 */
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;

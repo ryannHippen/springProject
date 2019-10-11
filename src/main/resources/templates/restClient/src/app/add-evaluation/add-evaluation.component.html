@@ -1,25 +1,26 @@
 <div>
   <h2>New Evaluation</h2>
+  id: {{id}}
   <hr>
   <div>
     <div class="formItem">
-      <label>Reviewer:</label><br> 
+      <label>Reviewer:</label><br>
       <input [(ngModel)]="evaluation.reviewer" placeholder="Reviewer"/>
     </div>
     <div class="formItem">
-      <label>Technologies:</label><br> 
+      <label>Technologies:</label><br>
       <input [(ngModel)]="evaluation.technologies" placeholder="Technologies"/>
     </div>
     <div class="formItem">
-      <label>Interview Date:</label><br> 
+      <label>Interview Date:</label><br>
       <input [(ngModel)]="evaluation.interviewDate" placeholder="Interview Date"/>
     </div>
     <div class="formItem">
-      <label>Rating out of 5:</label><br> 
+      <label>Rating out of 5:</label><br>
       <input [(ngModel)]="evaluation.rating" placeholder="Rating out of 5"/>
     </div>
     <div class="formItem">
-      <label>Feedback:</label><br> 
+      <label>Feedback:</label><br>
       <input [(ngModel)]="evaluation.customerFeedback" placeholder="Feedback"/>
     </div>
   </div>
