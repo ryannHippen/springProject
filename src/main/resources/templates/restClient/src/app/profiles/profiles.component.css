@@ -1,6 +1,6 @@
 #tableDiv {
   width: 100%;
-  max-width: 40em;
+  max-width: 50em;
 }
 
 .profiles {
@@ -29,8 +29,18 @@
   padding: 8px;
 }
 
-.profiles td.id {
+.profiles td.idTd {
   width: 2em;
+  text-align: center;
+}
+
+.profiles td.deleteTd {
+  width:1em;
+  text-align: center;
+}
+
+.profiles td.evalTd {
+  width:8em;
   text-align: center;
 }
 
@@ -68,12 +78,14 @@ button {
   font-family: Arial;
 }
 
-button:hover {
-  background-color: #cfd8dc;
+button.add {
+  margin: 1em;
+  padding: .5em;
+  font-size: 16px;
 }
 
-button.link {
-  margin: 1em;
+button.eval {
+  background-color: #40506198;
   padding: .5em;
   font-size: 16px;
 }
@@ -81,11 +93,14 @@ button.link {
 button.delete {
   position: relative;
   background-color: #40506198;
-  color: white;
   border: none;
   padding: .3em 1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+button:hover {
+  background-color: #cfd8dc;
 }
