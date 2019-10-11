@@ -6,5 +6,5 @@ export class Profile {
     lastName: string;
     email: string;
     about: string;
-    evaluation: Evaluation;
+    evalId: number;
 }

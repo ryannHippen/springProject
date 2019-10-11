@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { ProfileService }  from '../profile.service';
+import { EvaluationService }  from '../evaluation.service';
 import { Profile } from '../models/profile';
+import { Evaluation } from '../models/evaluation';
 
 @Component({
   selector: 'app-profile-detail',
@@ -13,11 +15,13 @@ import { Profile } from '../models/profile';
 export class ProfileDetailComponent implements OnInit {
 
   @Input() profile: Profile;
+  evaluation: Evaluation;
   
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
-    private location: Location
+    private location: Location,
+    private evaluationService: EvaluationService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +32,12 @@ export class ProfileDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.profileService.getProfile(id)
       .subscribe(profile => this.profile = profile);
+  }
+
+  getEvaluation(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.evaluationService.getEvaluation(id)
+      .subscribe(evaluation => this.evaluation = evaluation);
   }
 
   goBack(): void {

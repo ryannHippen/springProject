@@ -14,9 +14,14 @@
             <td class="idTd">{{profile.profileId}}</td>
             <td>{{profile.firstName}}</td>
             <td>{{profile.lastName}}</td>
-            <td class="evalTd">
-                <button class="eval" routerLink="/evaluation/{{profile.evalId}}">Add Evaluation</button>
+
+            <td *ngIf="profile.evalId" class="evalTd">
+                <button class="eval" routerLink="/evaluation/{{profile.profileId}}">View Eval.</button>
             </td>
+            <td *ngIf="!profile.evalId" class="evalTd">
+                <button class="eval" routerLink="/evaluation/new">New Eval.</button>
+            </td>
+
             <td class="deleteTd">
                 <button class="delete" title="delete profile"
                     (click)="delete(profile)">x</button>
