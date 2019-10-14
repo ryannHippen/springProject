@@ -22,15 +22,18 @@ public class Evaluation {
 	private String technologies;
 	private String interviewDate;
 	
-	@OneToOne
-	private Profile profile;
+	private Long profileProfileId;
+	
+	/*
+	 * @OneToOne private Profile profile;
+	 */
 	
 	public Evaluation() {
 		super();
 	}
 	
 	public Evaluation(Long evaluationId, String reviewer, String customerFeedback, int rating,
-			String technologies, String interviewDate) {
+			String technologies, String interviewDate, Long profileProfileId) {
 		super();
 		this.evaluationId = evaluationId;
 		//this.profile = profile;
@@ -39,6 +42,7 @@ public class Evaluation {
 		this.rating = rating;
 		this.technologies = technologies;
 		this.interviewDate = interviewDate;
+		this.profileProfileId = profileProfileId;
 	}
 
 	public Long getEvaluationId() {
@@ -93,6 +97,22 @@ public class Evaluation {
 	public void setInterviewDate(String interviewDate) {
 		this.interviewDate = interviewDate;
 	}
+	
+
+
+	public Long getProfileProfileId() {
+		return profileProfileId;
+	}
+
+	public void setProfileProfileId(Long profileProfileId) {
+		this.profileProfileId = profileProfileId;
+	}
+
+	/*
+	 * public Profile getProfile() { return profile; }
+	 * 
+	 * public void setProfile(Profile profile) { this.profile = profile; }
+	 */
 
 	@Override
 	public String toString() {

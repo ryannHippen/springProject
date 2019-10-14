@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from '../models/profile';
 import { ProfileService } from '../profile.service';
+import { PassIdService } from '../pass-id.service';
+
 
 @Component({
   selector: 'app-profiles',
@@ -8,12 +10,18 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
-  profiles: Profile[];
 
-  constructor(private profileService: ProfileService) { }
+  profiles: Profile[];
+  id: number;
+
+
+
+  constructor(private profileService: ProfileService,
+              private data: PassIdService) { }
 
   ngOnInit() {
     this.getProfiles();
+    this.data.currentId.subscribe(id => this.id = id);
   }
 
   getProfiles(): void {
@@ -25,5 +33,13 @@ export class ProfilesComponent implements OnInit {
     this.profiles = this.profiles.filter(p => p !== profile);
     this.profileService.deleteProfile(profile).subscribe();
   }
+
+  passId(selectedItem: any) {
+    this.data.changeId(selectedItem.profileId);
+  }
+
+  onSelect(selectedItem: any) {
+    console.log(selectedItem.Id); // You get the Id of the selected item here
+}
 
 }

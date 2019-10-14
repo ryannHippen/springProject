@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Evaluation } from '../models/evaluation';
+import { Profile } from '../models/profile';
 import { EvaluationService } from '../evaluation.service';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -10,6 +12,7 @@ import { EvaluationService } from '../evaluation.service';
 export class EvaluationsComponent implements OnInit {
 
   evaluations: Evaluation[];
+  profile: Profile[];
 
   constructor(private evaluationService: EvaluationService) { }
 
