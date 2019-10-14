@@ -1,5 +1,4 @@
 <h2>Profiles</h2>
-id: {{id}}
 <hr>
 <button class="add" routerLink="/profile/new">+ Add New</button>
 <div id="tableDiv">
@@ -16,11 +15,11 @@ id: {{id}}
             <td>{{profile.firstName}}</td>
             <td>{{profile.lastName}}</td>
 
-            <td *ngIf="profile.evalId" class="evalTd">
+            <td *ngIf="profile.evaluationEvaluationId" class="evalTd">
                 <button class="eval" routerLink="/evaluation/{{profile.profileId}}">View Eval.</button>
             </td>
-            <td *ngIf="!profile.evalId" class="evalTd">
-                <button class="eval" routerLink="/evaluation/new">New Eval.</button>
+            <td *ngIf="!profile.evaluationEvaluationId" class="evalTd">
+                <button class="eval" (click)="passId(profile)" routerLink="/evaluation/new">New Eval.</button>
             </td>
 
             <td class="deleteTd">

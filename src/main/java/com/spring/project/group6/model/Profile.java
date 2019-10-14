@@ -21,6 +21,8 @@ public class Profile {
 	private String email;
 	private String about;
 	
+	private Long evaluationEvaluationId;
+
 	/*
 	 * @OneToOne(fetch = FetchType.LAZY)
 	 * 
@@ -70,6 +72,14 @@ public class Profile {
 	}
 	public void setAbout(String about) {
 		this.about = about;
+	}
+	
+	public Long getEvaluationEvaluationId() {
+		return evaluationEvaluationId;
+	}
+
+	public void setEvaluationEvaluationId(Long evaluationEvaluationId) {
+		this.evaluationEvaluationId = evaluationEvaluationId;
 	}
 
 	/*
