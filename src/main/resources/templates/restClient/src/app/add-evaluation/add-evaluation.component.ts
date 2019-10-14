@@ -17,7 +17,8 @@ import { PassIdService } from '../pass-id.service';
 export class AddEvaluationComponent implements OnInit {
 
   @Input() evaluation: Evaluation = new Evaluation();
-  id: string;
+  
+  id: number;
 
   constructor(
     private route: ActivatedRoute,

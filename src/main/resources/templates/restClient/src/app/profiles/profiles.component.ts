@@ -12,9 +12,9 @@ import { PassIdService } from '../pass-id.service';
 export class ProfilesComponent implements OnInit {
 
   profiles: Profile[];
-  id: string;
+  id: number;
 
-  
+
 
   constructor(private profileService: ProfileService,
               private data: PassIdService) { }
@@ -34,8 +34,12 @@ export class ProfilesComponent implements OnInit {
     this.profileService.deleteProfile(profile).subscribe();
   }
 
-  passId(){
-    this.data.changeId()
+  passId(selectedItem: any) {
+    this.data.changeId(selectedItem.profileId);
   }
+
+  onSelect(selectedItem: any) {
+    console.log(selectedItem.Id); // You get the Id of the selected item here
+}
 
 }

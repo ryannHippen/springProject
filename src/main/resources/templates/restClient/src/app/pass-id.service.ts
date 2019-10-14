@@ -6,12 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PassIdService {
 
-  private idSource = new BehaviorSubject<string>('default message');
+  private idSource = new BehaviorSubject<number>(0);
   currentId = this.idSource.asObservable();
 
   constructor() { }
 
-  changeId(id: string) {
+  changeId(id: number) {
     this.idSource.next(id);
   }
 

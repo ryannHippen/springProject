@@ -1,6 +1,6 @@
 <div>
   <h2>New Evaluation</h2>
-  id: {{id}}
+{{id}}
   <hr>
   <div>
     <div class="formItem">
@@ -22,6 +22,10 @@
     <div class="formItem">
       <label>Feedback:</label><br>
       <input [(ngModel)]="evaluation.customerFeedback" placeholder="Feedback"/>
+    </div>
+    <div class="formItem">
+      <input [(ngModel)]="evaluation.profileProfileId" placeholder="{{id}}"/>
+      <!-- <input [(ngModel)]="evaluation.profileId"/> -->
     </div>
   </div>
 </div>
