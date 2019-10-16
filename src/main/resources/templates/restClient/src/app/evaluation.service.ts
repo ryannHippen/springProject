@@ -23,7 +23,7 @@ export class EvaluationService {
     headers: new HttpHeaders({ 'Content-Type' : 'application/json'})
   };
 
-  public getEvaluations(){
+  public getEvaluations() {
     return this.http.get<Evaluation[]>(this.baseUrl+'/evaluations');
   }
 
@@ -31,15 +31,15 @@ export class EvaluationService {
     return this.http.get<Evaluation>(this.baseUrl+'/evaluation/'+id);
   }
 
-  public updateEvaluation (evaluation) {
+  public updateEvaluation (evaluation: Evaluation) {
     return this.http.put(this.baseUrl, evaluation, this.httpOptions);
   }
 
-  public deleteEvaluation(evaluation) {
+  public deleteEvaluation(evaluation: Evaluation) {
     return this.http.delete(this.baseUrl+'/evaluation/'+ evaluation.evaluationId);
   }
 
-  public addEvaluation(evaluation) {
+  public addEvaluation(evaluation: Evaluation) {
     return this.http.post<Evaluation>(this.baseUrl, evaluation, this.httpOptions);
   }
 

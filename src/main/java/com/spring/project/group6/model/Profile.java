@@ -21,7 +21,6 @@ public class Profile {
 	private String email;
 	private String about;
 	
-	private Long evaluationEvaluationId;
 
 	/*
 	 * @OneToOne(fetch = FetchType.LAZY)
@@ -74,14 +73,6 @@ public class Profile {
 		this.about = about;
 	}
 	
-	public Long getEvaluationEvaluationId() {
-		return evaluationEvaluationId;
-	}
-
-	public void setEvaluationEvaluationId(Long evaluationEvaluationId) {
-		this.evaluationEvaluationId = evaluationEvaluationId;
-	}
-
 	/*
 	 * public File getFile() { return file; } public void setFile(File file) {
 	 * this.file = file; }
