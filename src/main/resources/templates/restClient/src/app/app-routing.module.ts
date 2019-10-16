@@ -8,6 +8,7 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
 import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
 import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'profile/:id', component: ProfileDetailComponent },
   { path: 'evaluations', component: EvaluationsComponent },
   { path: 'evaluation/new', component: AddEvaluationComponent },
-  { path: 'evaluation/:id', component: EvaluationDetailComponent }
+  { path: 'evaluation/:id', component: EvaluationDetailComponent },
+  { path: 'file-upload', component: FileUploadComponent }
 
 
 
