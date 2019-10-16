@@ -1,1 +1,11 @@
-<input type=""
+<div>
+    <h2>New File</h2>
+    <hr>
+    <div>
+        <div class="formItem">
+            <label>File To upload:</label><br>   
+            <input [(ngModel)]="file.filepath" placeholder="File"/>
+        </div>
+
+    <button (click)="goBack()">Go Back</button>
+    <button (click)="addFile()">Upload</button>

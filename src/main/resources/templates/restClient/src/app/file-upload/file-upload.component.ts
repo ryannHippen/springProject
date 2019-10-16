@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Fileupload } from '../models/fileupload';
+import { FileuploadService } from '../fileupload.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-file-upload',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileUploadComponent implements OnInit {
 
-  constructor() { }
+  @Input() file: Fileupload = new Fileupload();
+
+  constructor(
+    private route: ActivatedRoute,
+    private fileService: FileuploadService,
+   // private location: Location
+  ) { }
 
   ngOnInit() {
   }
 
+  goBack(): void {
+     // this.location.back();
+  }
+
+  addFile(): void {
+    console.log(this.file.file);
+    this.fileService.addFile(this.file)
+        .subscribe( data => {
+          alert('File uploaded successfully.');
+          this.goBack();
+        });
+  }
 }
