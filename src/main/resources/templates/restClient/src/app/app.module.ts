@@ -13,6 +13,7 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
 import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
 import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail
     AddProfileComponent,
     EvaluationsComponent,
     AddEvaluationComponent,
-    EvaluationDetailComponent
+    EvaluationDetailComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
