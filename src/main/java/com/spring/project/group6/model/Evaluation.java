@@ -12,7 +12,6 @@ import javax.persistence.OneToOne;
 public class Evaluation {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long evaluationId;	
 	
 

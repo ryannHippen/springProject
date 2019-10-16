@@ -59,7 +59,6 @@ export class ProfilesComponent implements OnInit {
   }
 
   checkIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
-    console.log(profile.hasEval);
     if(evals && !profile.hasEval){
       evals.forEach(e => {
         if (e.profileProfileId == profile.profileId) {
