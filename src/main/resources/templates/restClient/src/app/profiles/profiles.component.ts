@@ -17,16 +17,21 @@ export class ProfilesComponent implements OnInit {
   profiles: Profile[];
   evaluations: Evaluation[];
   id: number;
+  buttonHasEval: boolean;
+
   
   constructor(
     private profileService: ProfileService,
     private evaluationService: EvaluationService,
     private data: PassIdService
-  ) { }
+  ) { 
+    this.buttonHasEval = false;
+  }
 
   ngOnInit() {
     this.getProfiles();
     this.getEvaluations();
+    //this.findEvaluations(this.profiles, this.evaluations);
     this.data.currentId.subscribe(id => this.id = id);
   }
 
@@ -54,17 +59,56 @@ export class ProfilesComponent implements OnInit {
   }
 
 
-  hasEvaluation(profileId: number, evals: Evaluation[]) {
-    if(evals){
+  setIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
+    console.log(profile.hasEval);
+    if(evals && !profile.hasEval){
       evals.forEach(e => {
-        if (e.profileProfileId == profileId) {
-          console.log("TRUE");
-          return true;
+        if (e.profileProfileId == profile.profileId) {
+          profile.hasEval = true;
         }
       });
     }
-    console.log("FALSE");
-    return false;
   }
+
+  checkIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
+    console.log(profile.hasEval);
+    if(evals && !profile.hasEval){
+      evals.forEach(e => {
+        if (e.profileProfileId == profile.profileId) {
+          profile.hasEval = true;
+          return profile.hasEval;
+        }
+      });
+    }
+    return profile.hasEval;
+  }
+
+  findEvaluations(profiles: Profile[], evals: Evaluation[]) {
+    profiles.forEach(p => {
+      let pId = p.profileId;
+      evals.forEach(e => {
+        let ePId = e.profileProfileId;
+        if(pId == ePId){
+          p.hasEval = true;
+        }
+      });
+    });
+  }
+
+  changeButton(profile: Profile, evals: Evaluation[]){
+    let hasEval = false;
+    let pId = profile.profileId;
+    evals.forEach(e => {
+      let ePId = e.profileProfileId;
+      if(pId == ePId){
+        hasEval = true;
+      }
+    });
+
+    //do stuff to button
+
+  }
+
+
 
 }
