@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h2>Profiles</h2>
 <hr>
 <button class="add" routerLink="/profile/new">+ Add New</button>
@@ -31,37 +30,3 @@
     </table>
 </div>
 
-=======
-<h2>Profiles</h2>
-<hr>
-<button class="add" routerLink="/profile/new">+ Add New</button>
-<div id="tableDiv">
-    <table class="profiles">
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Evaluation</th>
-            <th>Delete</th>
-        </tr>
-        <tr *ngFor="let profile of profiles" routerLink="/profile/{{profile.profileId}}">
-            <td class="idTd">{{profile.profileId}}</td>
-            <td>{{profile.firstName}}</td>
-            <td>{{profile.lastName}}</td>
-
-            <td *ngIf="profile.evaluationEvaluationId" class="evalTd">
-                <button class="eval" routerLink="/evaluation/{{profile.profileId}}">View Eval.</button>
-            </td>
-            <td *ngIf="!profile.evaluationEvaluationId" class="evalTd">
-                <button class="eval" (click)="passId(profile)" routerLink="/evaluation/new">New Eval.</button>
-            </td>
-
-            <td class="deleteTd">
-                <button class="delete" title="delete profile"
-                    (click)="delete(profile)">x</button>
-            </td>
-        </tr>
-    </table>
-</div>
-
->>>>>>> 8356306191ef305b951e7adf2249b887583602a9
