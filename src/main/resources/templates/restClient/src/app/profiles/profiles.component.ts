@@ -58,18 +58,6 @@ export class ProfilesComponent implements OnInit {
     console.log(selectedItem.Id); // You get the Id of the selected item here
   }
 
-
-  setIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
-    console.log(profile.hasEval);
-    if(evals && !profile.hasEval){
-      evals.forEach(e => {
-        if (e.profileProfileId == profile.profileId) {
-          profile.hasEval = true;
-        }
-      });
-    }
-  }
-
   checkIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
     console.log(profile.hasEval);
     if(evals && !profile.hasEval){
@@ -81,32 +69,6 @@ export class ProfilesComponent implements OnInit {
       });
     }
     return profile.hasEval;
-  }
-
-  findEvaluations(profiles: Profile[], evals: Evaluation[]) {
-    profiles.forEach(p => {
-      let pId = p.profileId;
-      evals.forEach(e => {
-        let ePId = e.profileProfileId;
-        if(pId == ePId){
-          p.hasEval = true;
-        }
-      });
-    });
-  }
-
-  changeButton(profile: Profile, evals: Evaluation[]){
-    let hasEval = false;
-    let pId = profile.profileId;
-    evals.forEach(e => {
-      let ePId = e.profileProfileId;
-      if(pId == ePId){
-        hasEval = true;
-      }
-    });
-
-    //do stuff to button
-
   }
 
 
