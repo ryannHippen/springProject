@@ -43,6 +43,14 @@ export class ProfileService {
     return this.http.post<Profile>(this.baseUrl, profile, this.httpOptions);
   }
 
+  searchProfiles(term: string): Observable<Profile[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Profile[]>(`${this.baseUrl}/?firstName=${term}`);
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

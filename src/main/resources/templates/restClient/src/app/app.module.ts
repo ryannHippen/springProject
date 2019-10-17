@@ -14,6 +14,7 @@ import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
 import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ProfileSearchComponent } from './profile-search/profile-search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     EvaluationsComponent,
     AddEvaluationComponent,
     EvaluationDetailComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    ProfileSearchComponent
   ],
   imports: [
     BrowserModule,
