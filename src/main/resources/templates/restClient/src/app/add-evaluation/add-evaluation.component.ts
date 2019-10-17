@@ -43,7 +43,7 @@ export class AddEvaluationComponent implements OnInit {
   addEvaluation(): void {
     this.evaluationService.addEvaluation(this.evaluation)
         .subscribe( data => {
-          alert("Evaluation created successfully.");
+          alert('Evaluation created successfully.');
           this.goBack();
         });
   }

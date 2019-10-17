@@ -4,6 +4,7 @@ export class Profile {
     lastName: string;
     email: string;
     about: string;
+    fileFileId: number;
     hasEval: boolean;
 
     constructor() {

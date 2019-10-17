@@ -22,7 +22,11 @@
             <input [(ngModel)]="profile.about" placeholder="about"/>
         </div>
 
-        <p *ngIf="profile.evaluationEvaluationId">EVAL</p>
+        <div class="formItem" *ngIf="profile.fileFileId">
+            <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
+        </div>
+        <app-file-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-file-upload>
+    
     </div>
 </div>
 

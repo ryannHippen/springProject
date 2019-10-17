@@ -34,7 +34,7 @@ export class ProfilesComponent implements OnInit {
   ngOnInit() {
     this.getProfiles();
     this.getEvaluations();
-    //this.findEvaluations(this.profiles, this.evaluations);
+    // this.findEvaluations(this.profiles, this.evaluations);
     this.data.currentId.subscribe(id => this.id = id);
     this.passEmailService.currentEmail.subscribe(email => this.email = email);
   }
@@ -68,10 +68,9 @@ export class ProfilesComponent implements OnInit {
   }
 
   checkIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
-    console.log(profile.hasEval);
     if (evals && !profile.hasEval) {
       evals.forEach(e => {
-        if (e.profileProfileId == profile.profileId) {
+        if (e.profileProfileId === profile.profileId) {
           profile.hasEval = true;
           return profile.hasEval;
         }
