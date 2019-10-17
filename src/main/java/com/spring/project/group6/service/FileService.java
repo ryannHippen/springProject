@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.spring.project.group6.model.File;
 import com.spring.project.group6.repository.FileRepository;
 
+import org.hibernate.type.BlobType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -32,6 +33,8 @@ public class FileService {
     }
      
     public File save(File resume) {
+    	/*
+    	
     	try {
 			convertFileContentToBlob(resume.getFilepath(), resume);
 		} catch (SerialException e) {
@@ -44,6 +47,8 @@ public class FileService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
+    	
         return repo.save(resume);
     }
      
@@ -55,7 +60,9 @@ public class FileService {
         repo.deleteById(id);
     }
 	
-    public static void convertFileContentToBlob(String filePath, File file)throws IOException, SerialException, SQLException {
+    // public static void convertFileContentToBlob(String filePath, File file)throws IOException, SerialException, SQLException {
+    public static void convertFileContentToBlob(byte[] fileSent)throws IOException, SerialException, SQLException {
+    	   /*
     	   byte[] fileContent = null;
     	   // initialize string buffer to hold contents of file
     	   StringBuffer fileContentStr = new StringBuffer("");
@@ -78,9 +85,10 @@ public class FileService {
     		if (reader != null) {
     	           reader.close();
     		}
-    	   }
-       	byte[] myArray = fileContent;
+    	   */
+       	byte[] myArray = fileSent;
        	Blob blob =  new SerialBlob(myArray );
-       	file.setFile(blob);
+       	// BlobType bt = (BlobType)blob;
+       	// file.setFile(bt);
     	}
 }

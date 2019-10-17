@@ -14,6 +14,8 @@ import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
 import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { Direct } from 'protractor/built/driverProviders';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     // AppRoutingModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,7 +16,7 @@ export class ProfileDetailComponent implements OnInit {
 
   @Input() profile: Profile;
   evaluation: Evaluation;
-  
+
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,

@@ -4,8 +4,33 @@
     <div>
         <div class="formItem">
             <label>File To upload:</label><br>   
-            <input [(ngModel)]="file.filepath" placeholder="File"/>
+            <input type="file" [(ngModel)]="file.filepath" placeholder="File"/>
         </div>
 
     <button (click)="goBack()">Go Back</button>
     <button (click)="addFile()">Upload</button>
+
+    <h1>Upload your File!</h1>
+<div>
+  <div *ngIf="error">
+    {{ error.message }}
+  </div>
+  <div *ngIf="uploadResponse.status === 'error'">
+    {{ uploadResponse.message }}
+  </div>
+  <div *ngIf="uploadResponse.status === 'progress'">
+
+
+    <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      {{uploadResponse.message}}%
+    </div>
+
+  </div>
+
+  <form enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <input type="file" name="avatar" (change)="onFileChange($event)" />
+    <button type="submit">Upload</button>
+
+  </form>
+</div>
