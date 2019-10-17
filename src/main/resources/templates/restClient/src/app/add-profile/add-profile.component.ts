@@ -20,7 +20,9 @@ export class AddProfileComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.profile.fileFileId = 0;
+  }
 
   goBack(): void {
     this.location.back();

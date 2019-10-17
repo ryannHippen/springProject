@@ -36,8 +36,12 @@ export class EvaluationDetailComponent implements OnInit {
   }
 
   save(): void {
+    this.goBack();
     this.evaluationService.updateEvaluation(this.evaluation)
-      .subscribe(() => this.goBack());
+      .subscribe(() => 
+        //this.goBack();
+        alert('Changes were made to Evaluation. A confirmation email has been sent.')
+        );
   }
 
 }

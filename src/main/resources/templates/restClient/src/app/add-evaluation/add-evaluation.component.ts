@@ -30,9 +30,9 @@ export class AddEvaluationComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.currentId.subscribe(id => this.id = id);
-    this.passEmail.currentEmail.subscribe(email => this.email = email);
     this.evaluation.evaluationId = this.id;
     this.evaluation.profileProfileId = this.id;
+    this.passEmail.currentEmail.subscribe(email => this.email = email);
     this.evaluation.email = this.email;
   }
 
@@ -41,10 +41,11 @@ export class AddEvaluationComponent implements OnInit {
   }
 
   addEvaluation(): void {
+    this.goBack();
     this.evaluationService.addEvaluation(this.evaluation)
         .subscribe( data => {
-          alert('Evaluation created successfully.');
-          this.goBack();
+          alert('Evaluation was created. A confirmation email has been sent.');
+          //this.goBack();
         });
   }
 
