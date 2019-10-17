@@ -6,7 +6,8 @@ export class Profile {
     about: string;
     hasEval: boolean;
 
-    constructor(){
+    constructor() {
+
         this.hasEval = false;
     }
 }

@@ -11,8 +11,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Evaluation {
 	
+	
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long evaluationId;	
 	
 
@@ -21,6 +22,7 @@ public class Evaluation {
 	private int rating;
 	private String technologies;
 	private String interviewDate;
+	private String email;
 	
 	private Long profileProfileId;
 	
@@ -33,7 +35,7 @@ public class Evaluation {
 	}
 	
 	public Evaluation(Long evaluationId, String reviewer, String customerFeedback, int rating,
-			String technologies, String interviewDate, Long profileProfileId) {
+			String technologies, String interviewDate, String email, Long profileProfileId) {
 		super();
 		this.evaluationId = evaluationId;
 		//this.profile = profile;
@@ -42,6 +44,7 @@ public class Evaluation {
 		this.rating = rating;
 		this.technologies = technologies;
 		this.interviewDate = interviewDate;
+		this.email = email;
 		this.profileProfileId = profileProfileId;
 	}
 
@@ -98,7 +101,14 @@ public class Evaluation {
 		this.interviewDate = interviewDate;
 	}
 	
+	
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Long getProfileProfileId() {
 		return profileProfileId;

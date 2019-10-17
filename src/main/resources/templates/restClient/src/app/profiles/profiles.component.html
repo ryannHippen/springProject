@@ -14,7 +14,7 @@
             <td class="idTd">{{profile.profileId}}</td>
             <td>{{profile.firstName}}</td>
             <td>{{profile.lastName}}</td>
-            
+
 
             <td *ngIf="checkIfHasEvaluation(profile, evaluations)" class="evalTd">
                 <button class="eval" routerLink="/evaluation/{{profile.profileId}}">View Eval.</button>

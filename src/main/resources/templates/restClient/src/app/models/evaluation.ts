@@ -6,4 +6,5 @@ export class Evaluation {
   technologies: string;
   interviewDate: string;
   profileProfileId: number;
+  email: string;
 }

@@ -5,6 +5,7 @@ import { Evaluation } from '../models/evaluation';
 import { ProfileService } from '../profile.service';
 import { EvaluationService } from '../evaluation.service';
 import { PassIdService } from '../pass-id.service';
+import { PassEmailService } from '../pass-email.service';
 
 
 @Component({
@@ -17,14 +18,16 @@ export class ProfilesComponent implements OnInit {
   profiles: Profile[];
   evaluations: Evaluation[];
   id: number;
+  email: string;
   buttonHasEval: boolean;
 
-  
+
   constructor(
     private profileService: ProfileService,
     private evaluationService: EvaluationService,
-    private data: PassIdService
-  ) { 
+    private data: PassIdService,
+    private passEmailService: PassEmailService
+  ) {
     this.buttonHasEval = false;
   }
 
@@ -33,6 +36,7 @@ export class ProfilesComponent implements OnInit {
     this.getEvaluations();
     //this.findEvaluations(this.profiles, this.evaluations);
     this.data.currentId.subscribe(id => this.id = id);
+    this.passEmailService.currentEmail.subscribe(email => this.email = email);
   }
 
   getProfiles(): void {
@@ -52,6 +56,11 @@ export class ProfilesComponent implements OnInit {
 
   passId(selectedItem: any) {
     this.data.changeId(selectedItem.profileId);
+    this.passEmailService.changeEmail(selectedItem.email);
+  }
+
+  passEmail(selectedItem: any) {
+    this.passEmailService.changeEmail(selectedItem.email);
   }
 
   onSelect(selectedItem: any) {
@@ -60,7 +69,7 @@ export class ProfilesComponent implements OnInit {
 
   checkIfHasEvaluation(profile: Profile, evals: Evaluation[]) {
     console.log(profile.hasEval);
-    if(evals && !profile.hasEval){
+    if (evals && !profile.hasEval) {
       evals.forEach(e => {
         if (e.profileProfileId == profile.profileId) {
           profile.hasEval = true;
