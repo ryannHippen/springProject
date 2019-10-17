@@ -21,6 +21,9 @@ public class Profile {
 	private String email;
 	private String about;
 	
+	private Long fileFileId;
+	
+
 
 	/*
 	 * @OneToOne(fetch = FetchType.LAZY)
@@ -71,6 +74,14 @@ public class Profile {
 	}
 	public void setAbout(String about) {
 		this.about = about;
+	}
+	
+	public Long getFileFileId() {
+		return fileFileId;
+	}
+
+	public void setFileFileId(Long fileFileId) {
+		this.fileFileId = fileFileId;
 	}
 	
 	/*

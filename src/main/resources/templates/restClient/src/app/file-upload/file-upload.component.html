@@ -1,11 +1,9 @@
-<div>
-    <h2>New File</h2>
-    <hr>
-    <div>
-        <div class="formItem">
-            <label>File To upload:</label><br>   
-            <input [(ngModel)]="file.filepath" placeholder="File"/>
-        </div>
+<div class="file-upload">
+    <h3>Upload a Resume</h3>
+    <div class="formItem">
+        <label>File to Upload:</label><br>   
+        <input [(ngModel)]="file.filepath" placeholder="File"/>
+    </div>
 
-    <button (click)="goBack()">Go Back</button>
-    <button (click)="addFile()">Upload</button>
+    <button (click)="addFile()" class="upload">Upload</button>
+</div>

@@ -6,6 +6,7 @@ import { ProfileService }  from '../profile.service';
 import { EvaluationService }  from '../evaluation.service';
 import { Profile } from '../models/profile';
 import { Evaluation } from '../models/evaluation';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-detail',
@@ -26,6 +27,11 @@ export class ProfileDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile();
+  }
+
+  receiveFileId($event) {
+    this.profile.fileFileId = $event;
+    this.save();
   }
 
   getProfile(): void {

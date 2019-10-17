@@ -44,6 +44,11 @@
   text-align: center;
 }
 
+.profiles td.resumeTd {
+  width:1em;
+  text-align: center;
+}
+
 a {
   color: #333;
   text-decoration: none;
