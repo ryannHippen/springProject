@@ -6,7 +6,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.spring.project.group6.model.Profile;
+import com.spring.project.group6.model.Evaluation;
+
 
 @Service
 public class NotificationService {
@@ -18,15 +19,19 @@ public class NotificationService {
 		this.javaMailSender = javaMailSender;
 	}
 	
-	public void sendNotification(Profile profile) throws MailException {
+	public void sendNotification(Evaluation evaluation) throws MailException {
 		
 		SimpleMailMessage mail = new SimpleMailMessage();
 		
+		String interviewDate = evaluation.getInterviewDate();
+		String reviewer = evaluation.getReviewer();
 		
-		mail.setTo(profile.getEmail());
+		mail.setTo(evaluation.getEmail());
 		mail.setFrom("group6emailservice@gmail.com");
-		mail.setSubject("Big Lips Owen");
-		mail.setText("This is a test of things");
+		mail.setSubject("Interview Date: " + interviewDate);
+		mail.setText("This message is being sent to inform you that you have"
+		+" an interview scheduled for "+ interviewDate+"."
+		+" Contact "+reviewer+" for more information.");
 		
 		javaMailSender.send(mail);
 				

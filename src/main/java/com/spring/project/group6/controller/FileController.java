@@ -26,7 +26,7 @@ public class FileController {
      
     
     @GetMapping(path = {"/files"})
-    public List findAll(){
+    public List<File> findAll(){
         return service.listAll();
     }
     
