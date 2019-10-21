@@ -45,6 +45,7 @@ export class FileUploadComponent implements OnInit {
     formData.append('file', this.form.get('avatar').value);
 
     this.fileService.upload(formData).subscribe(
+
       // (res) => this.uploadResponse = res
       // (err) => this.error = err
     );

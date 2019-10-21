@@ -21,9 +21,9 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int fileId;
 	
-	@Lob
-    byte[] file;
-	// private BlobType file;
+	// @Lob
+    // byte[] file;
+	private Blob file;
 	private String filepath;
 	
 	public File() {
@@ -41,7 +41,7 @@ public class File {
 	}
 
 
-	public File(int fileId, byte[] file, String filepath) {
+	public File(int fileId, Blob file, String filepath) {
 		super();
 		this.fileId = fileId;
 		this.file = file;
@@ -56,11 +56,11 @@ public class File {
 		this.fileId = fileId;
 	}
 
-	public byte[] getFile() {
+	public Blob getFile() {
 		return file;
 	}
 
-	public void setFile(byte[] file) {
+	public void setFile(Blob file) {
 		this.file = file;
 	}
 

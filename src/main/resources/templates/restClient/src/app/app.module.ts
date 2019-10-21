@@ -16,6 +16,7 @@ import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { Direct } from 'protractor/built/driverProviders';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     // AppRoutingModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

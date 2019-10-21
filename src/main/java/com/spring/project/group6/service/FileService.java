@@ -12,12 +12,18 @@ import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.project.group6.model.File;
 import com.spring.project.group6.repository.FileRepository;
 
 import org.hibernate.type.BlobType;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 
 
@@ -31,8 +37,19 @@ public class FileService {
     public List<File> listAll() {
         return repo.findAll();
     }
+    
+    private static final String FILE_DIRECTORY = "/var/files";
+    
+	public File save(MultipartFile file) throws IOException, SerialException, SQLException  {
+		Path filePath = Paths.get(FILE_DIRECTORY + "/" + file.getOriginalFilename());
+		byte [] byteArr=file.getBytes();
+		File f = convertFileContentToBlob(byteArr);
+		Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+		return repo.save(f);
+	}
+	
      
-    public File save(File resume) {
+    //public File save(MultipartFile resume) throws IOException {
     	/*
     	
     	try {
@@ -49,8 +66,9 @@ public class FileService {
 		}
 		*/
     	
-        return repo.save(resume);
-    }
+        //return repo.save(resume);
+    //}
+
      
     public File get(long id) {
         return repo.findById(id).get();
@@ -61,7 +79,7 @@ public class FileService {
     }
 	
     // public static void convertFileContentToBlob(String filePath, File file)throws IOException, SerialException, SQLException {
-    public static void convertFileContentToBlob(byte[] fileSent)throws IOException, SerialException, SQLException {
+    public static File convertFileContentToBlob(byte[] fileSent)throws IOException, SerialException, SQLException {
     	   /*
     	   byte[] fileContent = null;
     	   // initialize string buffer to hold contents of file
@@ -86,9 +104,12 @@ public class FileService {
     	           reader.close();
     		}
     	   */
-       	byte[] myArray = fileSent;
-       	Blob blob =  new SerialBlob(myArray );
+    	File file = new File();
+    	
+       	// byte[] myArray = fileSent;
+       	Blob blob =  new SerialBlob(fileSent );
        	// BlobType bt = (BlobType)blob;
-       	// file.setFile(bt);
+       	file.setFile(blob);
+       	return file;
     	}
 }

@@ -16,7 +16,7 @@ export class FileuploadService {
   constructor(private http: HttpClient) { }
 
   httpOptions = {
-    // headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'})
   };
   // application/json
 // multipart/form-data
@@ -45,6 +45,13 @@ export class FileuploadService {
     })
     );
   }
+
+  uploadFIle(formData: FormData) {
+    // let headers = new Headers();
+    // headers.append('Accept', 'application/json');
+    // headers.append("Content-Type", 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW');
+    return this.http.post(this.baseUrl , {file : formData}, this.httpOptions)
+  };
 
   public addFile(file) {
     return this.http.post<Fileupload>(this.baseUrl, file, this.httpOptions);
