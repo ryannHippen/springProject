@@ -49,6 +49,16 @@ button:disabled {
   width: 100%;
 } */
 
+
+
 .profile-details-card {
   max-width: 400px;
+}
+
+mat-form-field {
+  padding: 10px;
+}
+
+mat-form-field.full-form-field {
+  width: 95%;
 }
