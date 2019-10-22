@@ -1,9 +1,9 @@
 <div *ngIf="profile">
   <h2>Profile ID #{{profile.profileId}} Details</h2>
   <hr>
+  <div>
 
-  <div class="example-container">
-
+    <!-- Begin Profile Details Card -->
     <mat-card class="profile-details-card">
 
       <mat-card-header>
@@ -36,7 +36,9 @@
       </mat-card-actions>
 
     </mat-card>
+    <!-- End Profile Details Card -->
 
+    <!-- File Upload Card -->
     <div>
       <mat-card *ngIf="profile.fileFileId" >
           <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
@@ -46,6 +48,6 @@
 
   </div>
 
-</div>
 
+</div>
 <button (click)="goBack()">Go Back</button>
