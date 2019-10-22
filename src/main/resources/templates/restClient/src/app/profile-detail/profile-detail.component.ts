@@ -52,7 +52,7 @@ export class ProfileDetailComponent implements OnInit {
 
   save(): void {
     this.profileService.updateProfile(this.profile)
-      .subscribe(() => this.goBack());
+      .subscribe();
   }
 
 }

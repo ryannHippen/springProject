@@ -1,5 +1,5 @@
 export class Fileupload {
     fileId: number;
-    file: string;
+    file: FormData;
     filepath: string;
   }
