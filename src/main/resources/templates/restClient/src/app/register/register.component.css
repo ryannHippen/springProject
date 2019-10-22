@@ -1,0 +1,50 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+   .example-card {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 15%;
+    
+  } 
+
+  /* body{
+    background-image: url(src/assets/img/pawel-czerwinski-lDtmU_ABtcU-unsplash.jpg);
+    background-size: auto;
+    background-position: center; // Center the image 
+    margin: auto;
+    width: auto;
+    margin-top: 0px;
+    background-size: cover;
+    
+  }  */
+
+  body {
+    position: fixed;
+    min-width: 100%;
+    background-image: url(src/assets/img/pawel-czerwinski-lDtmU_ABtcU-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    }
+
+  .example-header-image {
+    background-image: url(src/assets/img/Dry_Bag_Red-3_500x.jpg);
+    background-size: cover;
+  }
+
+  
+  /* .main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */

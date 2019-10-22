@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
+//login/register
+import { LogInComponent } from './log-in/log-in.component';
+import { RegisterComponent } from './register/register.component';
 
 import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
@@ -14,6 +17,9 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 
 const routes: Routes = [
   { path: 'profiles', component: ProfilesComponent },
+  //login/register
+  { path: 'log-in' , component: LogInComponent},
+  { path: 'register' , component: RegisterComponent},
   { path: 'profile/new', component: AddProfileComponent },
   { path: 'profile/:id', component: ProfileDetailComponent },
   { path: 'evaluations', component: EvaluationsComponent },
