@@ -1,4 +1,4 @@
-label {
+/* label {
   width: 3em;
   margin: .5em 0;
   color: #607D8B;
@@ -15,6 +15,7 @@ input:focus {
 .formItem {
   margin: 1em 2em;
 }
+*/
 button {
   margin: 2em 1em;
   width: 6em;
@@ -33,4 +34,21 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+} 
+
+
+
+/* from angular material example*/
+
+/* .example-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.example-container > * {
+  width: 100%;
+} */
+
+.profile-details-card {
+  max-width: 400px;
 }

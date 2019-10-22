@@ -1,34 +1,49 @@
 <div *ngIf="profile">
-    <h2>Profile ID #{{profile.profileId}}Details</h2>
-    <hr>
+  <h2>Profile ID #{{profile.profileId}} Details</h2>
+  <hr>
+
+  <div class="example-container">
+
+    <mat-card class="profile-details-card" flex>
+
+      <mat-card-header>
+        <mat-card-title>Profile Details</mat-card-title>
+      </mat-card-header>
+
+      <mat-form-field>
+          <input [(ngModel)]="profile.firstName" matInput placeholder="First Name"/>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input [(ngModel)]="profile.lastName" matInput placeholder="Last Name"/>
+      </mat-form-field>
+
+      <mat-form-field flex="100%">
+          <input [(ngModel)]="profile.email" matInput placeholder="Email"/>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+          <textarea [(ngModel)]="profile.about" matInput placeholder="About"></textarea>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-button>Undo</button>
+        <button mat-button (click)="save()">Save</button>
+      </mat-card-actions>
+
+    </mat-card>
+
     <div>
-        <div class="formItem">
-            <label>First Name:</label><br>
-            <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
-        </div>
-
-        <div class="formItem">
-            <label>Last Name:</label><br>
-            <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
-        </div>
-
-        <div class="formItem">
-            <label>Email:</label><br>
-            <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
-        </div>
-
-        <div class="formItem">
-            <label>About:</label><br>
-            <input [(ngModel)]="profile.about" placeholder="about"/>
-        </div>
-
-        <div class="formItem" *ngIf="profile.fileFileId">
-            <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
-        </div>
-        <app-file-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-file-upload>
-    
+      <mat-card *ngIf="profile.fileFileId" >
+          <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
+      </mat-card>
+      <app-file-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-file-upload>
     </div>
+
+  </div>
+
 </div>
 
 <button (click)="goBack()">Go Back</button>
-<button (click)="save()">Save</button>
