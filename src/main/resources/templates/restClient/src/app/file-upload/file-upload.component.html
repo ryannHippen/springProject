@@ -1,9 +1,13 @@
 <div class="file-upload">
-    <h3>Upload a Resume</h3>
-    <div class="formItem">
-        <label>File to Upload:</label><br>   
-        <input [(ngModel)]="file.filepath" placeholder="File"/>
-    </div>
+    <mat-card class="file-upload-card">
+        <mat-card-header>
+            <mat-card-title>Upload a Resume</mat-card-title>
+        </mat-card-header>
+        <mat-form-field>
+            <input [(ngModel)]="file.filepath" matInput placeholder="File"/>
+        </mat-form-field> 
+        
 
     <button (click)="addFile()" class="upload">Upload</button>
+    </mat-card>
 </div>
