@@ -9,7 +9,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <mat-form-field class="example-full-width">
-                <input type="text" matInput placeholder="Username" formControlName="username" class="form-control"  />
+                <input type="text" matInput placeholder="Username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
             </mat-form-field>
             <!-- <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                 <div *ngIf="f.username.errors.required">Username is required</div>
@@ -30,7 +30,6 @@
                 <button mat-raised-button [routerLink]="['/profiles']" [disabled]="loading" class="btn btn-primary">Login</button>
                 <a mat-button [routerLink]="['/register']" class="btn btn-link">Register</a>
             </mat-card-actions>    
-
         </div>
     </form>
     </mat-card>

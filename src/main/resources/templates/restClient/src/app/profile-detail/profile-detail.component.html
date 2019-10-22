@@ -1,34 +1,53 @@
 <div *ngIf="profile">
-    <h2>Profile ID #{{profile.profileId}}Details</h2>
-    <hr>
+  <h2>Profile ID #{{profile.profileId}} Details</h2>
+  <hr>
+  <div>
+
+    <!-- Begin Profile Details Card -->
+    <mat-card class="profile-details-card">
+
+      <mat-card-header>
+        <mat-card-title>Profile Details</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content layout="column">
+
+        <mat-form-field class="half-form-field">
+            <input [(ngModel)]="profile.firstName" matInput placeholder="First Name"/>
+        </mat-form-field>
+
+        <mat-form-field class="half-form-field">
+            <input [(ngModel)]="profile.lastName" matInput placeholder="Last Name"/>
+        </mat-form-field>
+
+        <mat-form-field class="full-form-field">
+            <input [(ngModel)]="profile.email" matInput placeholder="Email"/>
+        </mat-form-field>
+
+        <mat-form-field class="full-form-field">
+            <textarea [(ngModel)]="profile.about" matInput placeholder="About"></textarea>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button (click)="undo()">Undo</button>
+        <button class="save" mat-button (click)="save()">Save</button>
+      </mat-card-actions>
+
+    </mat-card>
+    <!-- End Profile Details Card -->
+
+    <!-- File Upload Card -->
     <div>
-        <div class="formItem">
-            <label>First Name:</label><br>
-            <input [(ngModel)]="profile.firstName" placeholder="First Name"/>
-        </div>
-
-        <div class="formItem">
-            <label>Last Name:</label><br>
-            <input [(ngModel)]="profile.lastName" placeholder="Last Name"/>
-        </div>
-
-        <div class="formItem">
-            <label>Email:</label><br>
-            <input [(ngModel)]="profile.email" placeholder="example@company.com"/>
-        </div>
-
-        <div class="formItem">
-            <label>About:</label><br>
-            <input [(ngModel)]="profile.about" placeholder="about"/>
-        </div>
-
-        <div class="formItem" *ngIf="profile.fileFileId">
-            <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
-        </div>
-        <app-file-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-file-upload>
-    
+      <div *ngIf="profile.fileFileId" >
+          <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
+      </div>
+      <app-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-upload>
     </div>
-</div>
 
+  </div>
+
+
+</div>
 <button (click)="goBack()">Go Back</button>
-<button (click)="save()">Save</button>

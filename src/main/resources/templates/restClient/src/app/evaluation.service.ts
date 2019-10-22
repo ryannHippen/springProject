@@ -43,6 +43,10 @@ export class EvaluationService {
     return this.http.post<Evaluation>(this.baseUrl, evaluation, this.httpOptions);
   }
 
+  public sendEmail(evaluation: Evaluation) {
+    return this.http.put(this.baseUrl+'/email', evaluation, this.httpOptions);
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

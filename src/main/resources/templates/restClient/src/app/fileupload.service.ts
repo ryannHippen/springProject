@@ -7,15 +7,13 @@ import { Fileupload } from './models/fileupload';
 })
 export class FileuploadService {
 
-  private baseUrl = '/api/file';
+  private baseUrl = '/api/files';
+  f = new Fileupload();
+  
   constructor(private http: HttpClient) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
-  public addFile(file) {
-    return this.http.post<Fileupload>(this.baseUrl, file, this.httpOptions);
+  public addFile(file: FormData) {
+    return this.http.post<Fileupload>(this.baseUrl, file);
   }
 
 }
