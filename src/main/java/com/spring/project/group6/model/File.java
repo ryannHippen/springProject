@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 
 @Entity
@@ -15,7 +16,9 @@ public class File {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int fileId;
-	private Blob file;
+	
+	@Lob
+	private byte[] file;
 	private String filepath;
 	
 	public File() {
@@ -33,7 +36,7 @@ public class File {
 	}
 
 
-	public File(int fileId, Blob file, String filepath) {
+	public File(int fileId, byte[] file, String filepath) {
 		super();
 		this.fileId = fileId;
 		this.file = file;
@@ -48,11 +51,11 @@ public class File {
 		this.fileId = fileId;
 	}
 
-	public Blob getFile() {
+	public byte[] getFile() {
 		return file;
 	}
 
-	public void setFile(Blob file) {
+	public void setFile(byte[] file) {
 		this.file = file;
 	}
 

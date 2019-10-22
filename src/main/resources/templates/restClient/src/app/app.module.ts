@@ -13,8 +13,9 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
 import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { AddEvaluationComponent } from './add-evaluation/add-evaluation.component';
 import { EvaluationDetailComponent } from './evaluation-detail/evaluation-detail.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
+import {FileUploadModule} from 'ng2-file-upload';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,8 @@ import { ProfileSearchComponent } from './profile-search/profile-search.componen
     EvaluationsComponent,
     AddEvaluationComponent,
     EvaluationDetailComponent,
-    FileUploadComponent,
-    ProfileSearchComponent
+    ProfileSearchComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +35,7 @@ import { ProfileSearchComponent } from './profile-search/profile-search.componen
     // AppRoutingModule,
     HttpClientModule,
     AppRoutingModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]
