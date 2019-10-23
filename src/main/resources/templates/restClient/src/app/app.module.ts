@@ -29,6 +29,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
 import { UploadComponent } from './upload/upload.component';
+import { UpdateFileComponent } from './update-file/update-file.component';
 
 
 
@@ -44,7 +45,8 @@ import { UploadComponent } from './upload/upload.component';
     LogInComponent,
     RegisterComponent,
     ProfileSearchComponent,
-    UploadComponent
+    UploadComponent,
+    UpdateFileComponent
 
   ],
   imports: [
