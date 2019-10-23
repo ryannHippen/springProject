@@ -5,9 +5,9 @@
             <mat-card-title>Choose File</mat-card-title>
         </mat-card-header>
         
-        <mat-form-field>
+        <mat-card-content>
             <input type="file" name="image" (change)="fileProgress($event)" />
-        </mat-form-field>
+        </mat-card-content>
 
         <mat-card-content>
             <div *ngIf="fileUploadProgress">
