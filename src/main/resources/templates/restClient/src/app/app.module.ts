@@ -4,10 +4,11 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- NgModel
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FileUploadModule} from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
+import { CookieService } from 'ngx-cookie-service';
 
 // Angular Material
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -66,7 +67,7 @@ import { UploadComponent } from './upload/upload.component';
     MatCardModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
