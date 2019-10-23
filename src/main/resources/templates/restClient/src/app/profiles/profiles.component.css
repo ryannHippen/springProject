@@ -1,3 +1,7 @@
+.profiles-container {
+  margin: 2em;
+}
+
 #tableDiv {
   width: 100%;
   max-width: 50em;

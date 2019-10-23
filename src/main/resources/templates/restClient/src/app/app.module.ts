@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 // Our Project Components
 import { AppComponent } from './app.component';
@@ -68,6 +69,7 @@ import { UpdateFileComponent } from './update-file/update-file.component';
     MatInputModule,
     MatCardModule,
     MatSnackBarModule,
+    MatToolbarModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
