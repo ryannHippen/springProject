@@ -1,13 +1,14 @@
-
+<!--
 <nav>
   <p class="logo">{{title}}</p>
   <a [ngClass]="getClass('/profiles')" routerLink="/profiles">Profiles</a>
   <a  routerLink="/log-in">log-in</a>
-  <!--
-  <a [ngClass]="getClass('/evaluations')" routerLink="/evaluations">Evaluations</a>
-  <a [ngClass]="getClass('/file-upload')" routerLink="/file-upload">Files</a>
-  -->
 </nav>
-
+-->
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+  <a class="mat-button" [ngClass]="getClass('/profiles')" routerLink="/profiles">Profiles</a>
+  <a class="mat-button" routerLink="/log-in">Login</a>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
