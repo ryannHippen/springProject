@@ -9,11 +9,16 @@ export class FileuploadService {
 
   private baseUrl = '/api/files';
   f = new Fileupload();
-  
+
   constructor(private http: HttpClient) { }
 
   public addFile(file: FormData) {
     return this.http.post<Fileupload>(this.baseUrl, file);
+  }
+
+  public updateFile(file: FormData){
+    
+    return this.http.put(this.baseUrl, file);
   }
 
 }
