@@ -56,11 +56,12 @@ export class ProfileDetailComponent implements OnInit {
   save(): void {
     this.profileService.updateProfile(this.profile)
       .subscribe();
+    alert("Changes have been saved.")
   }
 
   undo(): void {
     this.getProfile();
-    alert("Changes were undone.")
+    alert("Undid new changes.")
   }
 
 }

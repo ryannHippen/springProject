@@ -18,8 +18,8 @@ input:focus {
 */
 button {
   margin: 2em 1em;
-  width: 6em;
-  padding: 1em;
+  width: 75px;
+  height: 40px;
   font-family: Arial;
   background-color: #eee;
   border: none;
@@ -39,17 +39,27 @@ button.save {
   background-color: #405061;
   color: white;
   font-weight: bold;
+  margin-left: 2em;
 }
 
 .profile-details-card {
   max-width: 400px;
-  margin: 2em 0 0 0;
 }
 
+.profile-details-container {
+  margin: 2em;
+}
+
+mat-card {
+  padding: 2em;
+  margin: 2em 0 0 0;
+}
 mat-form-field {
   padding: 10px;
 }
-
 mat-form-field.full-form-field {
   width: 95%;
+}
+mat-card-actions {
+  margin: 1em;
 }
