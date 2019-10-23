@@ -19,11 +19,6 @@ body, input[type="text"], button {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
-<<<<<<< HEAD
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-body { font-family: Roboto, "Helvetica Neue", sans-serif; }
-=======
 
 body { 
   height: 100%;
@@ -31,5 +26,4 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: whitesmoke;
 }
->>>>>>> e7610931e986790e42f3f9e0dc46dc93a02ac533
 

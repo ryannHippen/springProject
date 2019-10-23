@@ -17,6 +17,7 @@ export class FileuploadService {
   }
 
   public updateFile(file: FormData){
+    
     return this.http.put(this.baseUrl, file);
   }
 
