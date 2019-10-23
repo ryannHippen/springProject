@@ -1,4 +1,4 @@
-<div *ngIf="profile">
+<div *ngIf="profile" class="profile-details-container">
   <h2>Profile ID #{{profile.profileId}} Details</h2>
   <hr>
   <div>
@@ -40,14 +40,12 @@
 
     <!-- File Upload Card -->
     <div>
-      <div *ngIf="profile.fileFileId" >
-          <label>Resume Uploaded: ID #{{profile.fileFileId}}</label><br>
-      </div>
       <app-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-upload>
     </div>
 
   </div>
 
+  <button (click)="goBack()">Go Back</button>
 
 </div>
-<button (click)="goBack()">Go Back</button>
+
