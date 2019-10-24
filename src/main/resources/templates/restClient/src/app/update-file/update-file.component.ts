@@ -14,14 +14,19 @@ export class UpdateFileComponent implements OnInit {
   previewUrl:any = null;
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
+  profileId: any = null;
+
+  @Output() shareFormDataEvent = new EventEmitter<FormData>();
 
 constructor(private http: HttpClient, private fileService: FileuploadService,) { }
 
   ngOnInit() {
+    
   }
 
   fileProgress(fileInput: any) {
     this.fileData = <File>fileInput.target.files[0];
+    
     this.preview();
 }
 
@@ -44,13 +49,17 @@ preview() {
 onSubmit() {
   const formData = new FormData();
   formData.append('file', this.fileData);
-  formData.append('id', this.fileData);
-  this.fileService.updateFile(formData)
+  this.shareForm(formData);
+  //this.fileService.updateFile(formData, 1)
 
-    .subscribe(data => {
-      console.log(data);
+  //  .subscribe(data => {
+  //    console.log(data);
       alert('File uploaded successfully.');
-    }) 
+  //  }) 
+}
+
+shareForm(form) {
+  this.shareFormDataEvent.emit(form)
 }
 
 }

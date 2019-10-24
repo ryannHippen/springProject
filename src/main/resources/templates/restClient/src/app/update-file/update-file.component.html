@@ -1,1 +1,29 @@
-<p>update-file works!</p>
+<div class="upload-container">
+    <mat-card class="upload-card">
+
+        <mat-card-header>
+            <mat-card-title>Choose File</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <input type="file" name="image" (change)="fileProgress($event)" />
+        </mat-card-content>
+
+        <mat-card-content>
+            <div *ngIf="fileUploadProgress">
+                Upload progress: {{ fileUploadProgress }}
+            </div>
+            <div *ngIf="previewUrl">
+                <img [src]="previewUrl" height="300" />                 
+            </div>
+            <div *ngIf="uploadedFilePath">
+                {{uploadedFilePath}}
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+                <button class="save" (click)="onSubmit()">Submit</button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>

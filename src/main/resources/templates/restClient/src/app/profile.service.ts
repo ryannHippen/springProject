@@ -6,9 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Profile } from './models/profile';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
 
 @Injectable({
   providedIn: 'root'

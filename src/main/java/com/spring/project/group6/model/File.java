@@ -1,7 +1,5 @@
 package com.spring.project.group6.model;
 
-import java.sql.Blob;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +13,7 @@ public class File {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int fileId;
+	private long fileId;
 	
 	@Lob
 	private byte[] file;
@@ -43,7 +41,7 @@ public class File {
 		this.filepath = filepath;
 	}
 
-	public int getFileId() {
+	public long getFileId() {
 		return fileId;
 	}
 
