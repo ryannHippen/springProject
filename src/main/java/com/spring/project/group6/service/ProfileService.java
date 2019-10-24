@@ -34,6 +34,10 @@ public class ProfileService {
     public void delete(long id) {
         repo.deleteById(id);
     }
+
+	public List<Profile> getByQuery(String name) {
+		return repo.getByQuery(name);
+	}
     
 	
 }

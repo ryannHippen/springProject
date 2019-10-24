@@ -1,11 +1,11 @@
 <div id="search-component">
-    <h4><label for="search-box">Hero Search</label></h4>
+    <h4><label for="search-box">Profile Search</label></h4>
     
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+    <input #searchBox id="search-box" matInput (input)="search(searchBox.value)" />
     
     <ul class="search-result">
         <li *ngFor="let profile of profiles$ | async" >
-            <a routerLink="/detail/{{profile.profileId}}">
+            <a routerLink="/pro/profile/{{profile.profileId}}">
                 {{profile.firstName}}
             </a>
         </li>

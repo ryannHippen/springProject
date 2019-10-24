@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.project.group6.model.Profile;
@@ -46,6 +47,14 @@ public class CandProfileController {
     @DeleteMapping("/profile/{id}")
     public void deleteProfile(@PathVariable("id") int id) {
         service.delete(id);      
+    }
+    
+    @GetMapping("/profiles/search")
+    public List<Profile> getAllByQuery(
+    		@RequestParam(value = "firstName", required = false) String name
+	) {
+    	System.out.println("NAME: "+name);
+        return service.getByQuery(name);      
     }
     
 }

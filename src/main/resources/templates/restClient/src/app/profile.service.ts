@@ -24,19 +24,19 @@ export class ProfileService {
   };
 
   public getProfiles() {
-    return this.http.get<Profile[]>(this.baseUrl+'/profiles');
+    return this.http.get<Profile[]>(this.baseUrl + '/profiles');
   }
 
   public getProfile(id: number): Observable<Profile> {
-    return this.http.get<Profile>(this.baseUrl+'/profile/'+id);
+    return this.http.get<Profile>(this.baseUrl + '/profile/' + id);
   }
 
-  public updateProfile (profile) {
+  public updateProfile(profile) {
     return this.http.put(this.baseUrl, profile, this.httpOptions);
   }
 
   public deleteProfile(profile) {
-    return this.http.delete(this.baseUrl+'/profile/'+ profile.profileId);
+    return this.http.delete(this.baseUrl + '/profile/' + profile.profileId);
   }
 
   public addProfile(profile) {
@@ -48,7 +48,7 @@ export class ProfileService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Profile[]>(`${this.baseUrl}/?firstName=${term}`);
+    return this.http.get<Profile[]>(`${this.baseUrl}/profiles/search/?firstName=${term}`);
   }
 
   /**
@@ -57,7 +57,7 @@ export class ProfileService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

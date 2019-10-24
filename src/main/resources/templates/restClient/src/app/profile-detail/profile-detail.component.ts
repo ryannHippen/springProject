@@ -4,8 +4,8 @@ import { Location } from '@angular/common';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-import { ProfileService }  from '../profile.service';
-import { EvaluationService }  from '../evaluation.service';
+import { ProfileService } from '../profile.service';
+import { EvaluationService } from '../evaluation.service';
 import { Profile } from '../models/profile';
 import { Evaluation } from '../models/evaluation';
 import { NgModel } from '@angular/forms';
@@ -19,13 +19,12 @@ export class ProfileDetailComponent implements OnInit {
 
   @Input() profile: Profile;
   evaluation: Evaluation;
-  
+
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
     private location: Location,
     private evaluationService: EvaluationService,
-    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -56,12 +55,12 @@ export class ProfileDetailComponent implements OnInit {
   save(): void {
     this.profileService.updateProfile(this.profile)
       .subscribe();
-    alert("Changes have been saved.")
+    alert('Changes have been saved.');
   }
 
   undo(): void {
     this.getProfile();
-    alert("Undid new changes.")
+    alert('Undid new changes.');
   }
 
 }
