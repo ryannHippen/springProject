@@ -27,9 +27,6 @@
         <mat-form-field class="full-form-field">
             <textarea [(ngModel)]="profile.about" matInput placeholder="About"></textarea>
         </mat-form-field>
-        <mat-form-field class="full-form-field">
-          <textarea [(ngModel)]="profile.fileFileId" matInput ></textarea>
-      </mat-form-field>
 
       </mat-card-content>
 
@@ -44,7 +41,10 @@
     <!-- File Upload Card -->
     <div>
       <app-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-upload>
-      <app-update-file *ngIf="profile.fileFileId" (shareFormDataEvent)="receiveFileFormData($event)"></app-update-file>
+      <app-update-file *ngIf="profile.fileFileId" 
+        (shareFormDataEvent)="receiveFileFormData($event)"
+        [shareCurrentFileId]="shareCurrentFileId">
+      </app-update-file>
     </div>
 
   </div>
