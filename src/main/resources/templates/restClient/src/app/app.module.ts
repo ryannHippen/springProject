@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSliderModule } from '@angular/material/slider';
 
 // Our Project Components
 import { AppComponent } from './app.component';
@@ -70,6 +71,7 @@ import { UpdateFileComponent } from './update-file/update-file.component';
     MatCardModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSliderModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

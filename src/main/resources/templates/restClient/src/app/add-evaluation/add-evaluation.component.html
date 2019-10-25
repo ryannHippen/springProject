@@ -1,30 +1,41 @@
-<div>
+<div class="evaluation-details-container">
   <h2>New Evaluation</h2>
   <hr>
-  <div>
-    <div class="formItem">
-      <label>Reviewer:</label><br>
-      <input [(ngModel)]="evaluation.reviewer" placeholder="Reviewer"/>
-    </div>
-    <div class="formItem">
-      <label>Technologies:</label><br>
-      <input [(ngModel)]="evaluation.technologies" placeholder="Technologies"/>
-    </div>
-    <div class="formItem">
-      <label>Interview Date:</label><br>
-      <input [(ngModel)]="evaluation.interviewDate" placeholder="Interview Date"/>
-    </div>
-    <div class="formItem">
-      <label>Rating out of 5:</label><br>
-      <input [(ngModel)]="evaluation.rating" placeholder="Rating out of 5"/>
-    </div>
-    <div class="formItem">
-      <label>Feedback:</label><br>
-      <input [(ngModel)]="evaluation.customerFeedback" placeholder="Feedback"/>
-    </div>
-  </div>
+  <!-- Begin Evaluation Details Card -->
+  <mat-card class="evaluation-details-card">
+
+    <!-- Card Header -->
+    <mat-card-header>
+      <mat-card-title>Evaluation Details</mat-card-title>
+    </mat-card-header>
+
+    <!-- Input Fields -->
+    <mat-form-field class="full-form-field">
+      <input [(ngModel)]="evaluation.reviewer" matInput placeholder="Reviewer"/>
+    </mat-form-field>
+    <mat-form-field class="full-form-field">
+      <input [(ngModel)]="evaluation.technologies" matInput placeholder="Technologies"/>
+    </mat-form-field>
+    <mat-form-field class="full-form-field">
+      <input [(ngModel)]="evaluation.interviewDate" matInput type="date" placeholder="Interview Date"/>
+    </mat-form-field>
+
+    <mat-form-field class="small-form-field">
+      <input class="rating-input" [(ngModel)]="evaluation.rating" readonly matInput min="1" max="5" placeholder="Rating"/>
+    </mat-form-field>
+    <mat-slider [(ngModel)]="evaluation.rating" min="1" max="5" step="1" thumbLabel="true"></mat-slider>
+    
+    <mat-form-field class="full-form-field">
+      <input [(ngModel)]="evaluation.customerFeedback" matInput placeholder="Feedback"/>
+    </mat-form-field>
+
+    <!-- Card Actions -->
+    <mat-card-actions>
+      <button class="save" mat-button (click)="addEvaluation()">Submit</button>
+    </mat-card-actions>
+
+  </mat-card>
 </div>
 
 <button (click)="goBack()">Go Back</button>
-<button (click)="addEvaluation()">Save</button>
 

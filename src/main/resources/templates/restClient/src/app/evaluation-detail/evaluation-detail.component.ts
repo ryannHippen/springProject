@@ -25,7 +25,6 @@ export class EvaluationDetailComponent implements OnInit {
   }
 
   getEvaluation(): void {
-    //const id = +this.route.snapshot.paramMap.get('id');
     const id = +this.route.snapshot.paramMap.get('id');
     this.evaluationService.getEvaluation(id)
       .subscribe(evaluation => this.evaluation = evaluation);
@@ -35,10 +34,15 @@ export class EvaluationDetailComponent implements OnInit {
     this.location.back();
   }
 
+  undo(): void {
+    this.getEvaluation();
+    alert('Changes were undone.');
+  }
+
   save(): void {
     // return to profiles page
     this.goBack();
-    
+
     // save the update to evaluation
     this.evaluationService.updateEvaluation(this.evaluation)
       .subscribe(() => {
@@ -48,9 +52,8 @@ export class EvaluationDetailComponent implements OnInit {
     // send the email
     this.evaluationService.sendEmail(this.evaluation)
     .subscribe();
-    
-  }
 
+  }
 
 
 }

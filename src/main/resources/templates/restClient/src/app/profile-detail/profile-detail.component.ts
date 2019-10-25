@@ -84,7 +84,7 @@ export class ProfileDetailComponent implements OnInit {
 
   undo(): void {
     this.getProfile();
-    alert('Undid new changes.');
+    alert('Changes were undone.');
   }
 
 }

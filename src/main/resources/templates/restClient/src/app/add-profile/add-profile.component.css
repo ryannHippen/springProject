@@ -1,4 +1,4 @@
-label {
+/* label {
   width: 3em;
   margin: .5em 0;
   color: #607D8B;
@@ -15,10 +15,11 @@ input:focus {
 .formItem {
   margin: 1em 2em;
 }
+*/
 button {
   margin: 2em 1em;
-  width: 6em;
-  padding: 1em;
+  width: 75px;
+  height: 40px;
   font-family: Arial;
   background-color: #eee;
   border: none;
@@ -33,4 +34,32 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+button.save {
+  background-color: #405061;
+  color: white;
+  font-weight: bold;
+  margin-left: 2em;
+}
+
+.profile-details-card {
+  max-width: 400px;
+}
+
+.profile-details-container {
+  margin: 2em;
+}
+
+mat-card {
+  padding: 2em;
+  margin: 2em 0 0 0;
+}
+mat-form-field {
+  padding: 10px;
+}
+mat-form-field.full-form-field {
+  width: 95%;
+}
+mat-card-actions {
+  margin: 1em;
 }
