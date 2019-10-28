@@ -22,9 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring.project.group6.model.File;
 
 import com.spring.project.group6.service.FileService;
-// comment
 @RestController
-@RequestMapping(value="/api/files",headers=("content-type=multipart/*"))
+@RequestMapping(value="/api/files")
 public class FileController {
  
     @Autowired
@@ -51,16 +50,11 @@ public class FileController {
         return service.update(Integer.parseInt(id), file.getBytes());
     }
     
-    // @RequestMapping(value ="/file/{id}" , consumes = MediaType.APPLICATION_JSON_VALUE)
-    @GetMapping
-    public ResponseEntity<byte[]> getFile(@PathVariable(name = "id") int id) {
-    	System.out.println("in getFile");
+    @RequestMapping(value ="/file/{id}")
+    public ResponseEntity<byte[]>getFile(@PathVariable(name = "id") int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_PNG);
         return new ResponseEntity<>(service.get(id).getFile(), headers, HttpStatus.OK);
-    	
-    	
-		// return service.get(id).getFile();
     }
     
     @DeleteMapping("/file/{id}")

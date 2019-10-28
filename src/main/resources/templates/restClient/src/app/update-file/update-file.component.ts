@@ -3,6 +3,7 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FileuploadService } from '../fileupload.service';
 import { Fileupload } from '../models/fileupload';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-file',
@@ -17,34 +18,46 @@ export class UpdateFileComponent implements OnInit {
   uploadedFilePath: string = null;
   profileId: any = null;
   filePreview: Fileupload;
-  @Input() shareCurrentFileId: any;
+  getFile: FormData;
+  imageToShow: any;
+  show: boolean = true;
 
+  @Input() shareCurrentFileId: any;
   @Output() shareFormDataEvent = new EventEmitter<FormData>();
 
-constructor(private http: HttpClient, private fileService: FileuploadService,) { }
+constructor(private http: HttpClient, private fileService: FileuploadService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-     this.receiveFileId();
-    console.log('in ngoninit ' + this.shareCurrentFileId);
+     this.getImageFromService();
   }
 
   receiveFileId() {
     console.log('in receive file id');
     console.log(this.shareCurrentFileId);
-    this.fileService.getFile(this.shareCurrentFileId)
-    
-    .subscribe(file =>{
-      console.log('right after subscribe');
-        // this.filePreview = file;
-        console.log('console.log filepreview id' +this.filePreview.fileId);
-        console.log(this.filePreview.filepath);
-        console.log(this.filePreview.file);;
-
-      });
-      
+    this.fileService.getFile(this.shareCurrentFileId).subscribe();
   }
 
+createImageFromBlob(image: Blob) {
+   let reader = new FileReader();
+   reader.addEventListener("load", () => {
+      this.imageToShow = reader.result;
+   }, false);
+
+   if (image) {
+      reader.readAsDataURL(image);
+   }
+}
+
+  getImageFromService() {
+    this.fileService.getFile(this.shareCurrentFileId).subscribe(data => {
+      this.createImageFromBlob(data);
+    }, error => {
+      console.log(error);
+    });
+}
+
   fileProgress(fileInput: any) {
+    this.show = true;
     this.fileData = <File>fileInput.target.files[0];
     this.preview();
 }
@@ -69,6 +82,8 @@ onSubmit() {
   formData.append('file', this.fileData);
   this.shareForm(formData);
       alert('File uploaded successfully.');
+      this.getImageFromService();
+      this.show = false;
 }
 
 shareForm(form) {
