@@ -1,29 +1,29 @@
 <div class="upload-container">
     <mat-card class="upload-card">
-
+        <img [src]="imageToShow" alt="Place image title" *ngIf="!isImageLoading; else noImageFound">
+        <ng-template #noImageFound>
+            <img src="" alt="Fallbackimage">
+        </ng-template>
         <mat-card-header>
-            <mat-card-title>Choose File</mat-card-title>
+            <!-- <mat-card-title>Choose File</mat-card-title> -->
         </mat-card-header>
-        
+
+
         <mat-card-content>
             <input type="file" name="image" (change)="fileProgress($event)" />
-        </mat-card-content>
-
-        <mat-card-content>
+            <button class="save" (click)="onSubmit()">Replace</button>
             <div *ngIf="fileUploadProgress">
                 Upload progress: {{ fileUploadProgress }}
             </div>
-            <div *ngIf="previewUrl">
-                <img [src]="previewUrl" height="300" />                 
-            </div>
+            <ng-container *ngIf="show">
+                <div *ngIf="previewUrl">
+                    <img [src]="previewUrl" height="300" />
+                </div>
+                <ng-container *ngIf="show"></ng-container>
+            </ng-container>
             <div *ngIf="uploadedFilePath">
                 {{uploadedFilePath}}
             </div>
         </mat-card-content>
-
-        <mat-card-actions>
-                <button class="save" (click)="onSubmit()">Submit</button>
-        </mat-card-actions>
-
     </mat-card>
 </div>

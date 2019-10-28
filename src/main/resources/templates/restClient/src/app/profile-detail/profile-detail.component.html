@@ -44,7 +44,10 @@
     <!-- File Upload Card -->
     <div>
       <app-upload *ngIf="!profile.fileFileId" (shareIdEvent)="receiveFileId($event)"></app-upload>
-      <app-update-file *ngIf="profile.fileFileId" (shareFormDataEvent)="receiveFileFormData($event)"></app-update-file>
+      <app-update-file *ngIf="profile.fileFileId" 
+        (shareFormDataEvent)="receiveFileFormData($event)"
+        [shareCurrentFileId]="shareCurrentFileId">
+      </app-update-file>
     </div>
 
   </div>

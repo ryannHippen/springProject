@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -20,6 +20,7 @@ export class ProfileDetailComponent implements OnInit {
 
   @Input() profile: Profile;
   @Input() form: FormData;
+  @Output() shareCurrentFileId: any;
   evaluation: Evaluation;
   fileId: any = null;
 
@@ -37,6 +38,7 @@ export class ProfileDetailComponent implements OnInit {
   }
 
   receiveFileId($event) {
+    console.log('in receive fileid');
     this.profile.fileFileId = $event;
     this.save();
   }
@@ -49,7 +51,6 @@ export class ProfileDetailComponent implements OnInit {
 
   updateFile(form: FormData) {
     form.append('id', this.fileId);
-
     this.fileService.updateFile(form)
     .subscribe(data => {
           console.log(data);
@@ -63,6 +64,7 @@ export class ProfileDetailComponent implements OnInit {
       .subscribe(profile => {
         this.profile = profile;
         this.fileId = this.profile.fileFileId;
+        this. shareCurrentFileId = this.profile.fileFileId;
       });
   }
 

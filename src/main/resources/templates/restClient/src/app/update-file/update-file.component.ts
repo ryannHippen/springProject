@@ -1,7 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FileuploadService } from '../fileupload.service';
 import { Fileupload } from '../models/fileupload';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-file',
@@ -15,18 +17,48 @@ export class UpdateFileComponent implements OnInit {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
   profileId: any = null;
+  filePreview: Fileupload;
+  getFile: FormData;
+  imageToShow: any;
+  show: boolean = true;
 
+  @Input() shareCurrentFileId: any;
   @Output() shareFormDataEvent = new EventEmitter<FormData>();
 
-constructor(private http: HttpClient, private fileService: FileuploadService,) { }
+constructor(private http: HttpClient, private fileService: FileuploadService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    
+     this.getImageFromService();
   }
 
+  receiveFileId() {
+    console.log('in receive file id');
+    console.log(this.shareCurrentFileId);
+    this.fileService.getFile(this.shareCurrentFileId).subscribe();
+  }
+
+createImageFromBlob(image: Blob) {
+   let reader = new FileReader();
+   reader.addEventListener("load", () => {
+      this.imageToShow = reader.result;
+   }, false);
+
+   if (image) {
+      reader.readAsDataURL(image);
+   }
+}
+
+  getImageFromService() {
+    this.fileService.getFile(this.shareCurrentFileId).subscribe(data => {
+      this.createImageFromBlob(data);
+    }, error => {
+      console.log(error);
+    });
+}
+
   fileProgress(fileInput: any) {
+    this.show = true;
     this.fileData = <File>fileInput.target.files[0];
-    
     this.preview();
 }
 
@@ -45,17 +77,13 @@ preview() {
   }
 }
 
-
 onSubmit() {
   const formData = new FormData();
   formData.append('file', this.fileData);
   this.shareForm(formData);
-  //this.fileService.updateFile(formData, 1)
-
-  //  .subscribe(data => {
-  //    console.log(data);
       alert('File uploaded successfully.');
-  //  }) 
+      this.getImageFromService();
+      this.show = false;
 }
 
 shareForm(form) {
